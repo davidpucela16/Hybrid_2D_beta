@@ -1,0 +1,1183 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fb55fe9c24b, pid=21040, tid=140415521412864
+#
+# JRE version: 6.0_20-b02
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (16.3-b01 mixed mode linux-amd64 )
+# Problematic frame:
+# C  [libpthread.so.0+0x1424b]  raise+0xcb
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread is native thread
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=-6 (FPE_FLTOVF), si_addr=0x0000afad00005230
+
+Registers:
+RAX=0x0000000000000000, RBX=0x0000000000000000, RCX=0x00007fb55fe9c24b, RDX=0x0000000000000000
+RSP=0x00007fb5094649b0, RBP=0x00007fb509464ef0, RSI=0x00007fb5094649b0, RDI=0x0000000000000002
+R8 =0x0000000000000000, R9 =0x00007fb5094649b0, R10=0x0000000000000008, R11=0x0000000000000246
+R12=0x00007fb4a54517ee, R13=0x0000000000000020, R14=0x000000000000000a, R15=0x00007fb4bf4a5980
+RIP=0x00007fb55fe9c24b, EFL=0x0000000000000246, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007fb5094649b0)
+0x00007fb5094649b0:   0000000000000000 0000000000000000
+0x00007fb5094649c0:   0000000000000000 0000000000000000
+0x00007fb5094649d0:   0000000000000000 0000000000000000
+0x00007fb5094649e0:   0000000000000000 0000000000000000
+0x00007fb5094649f0:   0000000000000000 0000000000000000
+0x00007fb509464a00:   0000000000000000 0000000000000000
+0x00007fb509464a10:   0000000000000000 0000000000000000
+0x00007fb509464a20:   0000000000000000 0000000000000000
+0x00007fb509464a30:   fffffffe7fffffff ffffffffffffffff
+0x00007fb509464a40:   ffffffffffffffff ffffffffffffffff
+0x00007fb509464a50:   ffffffffffffffff ffffffffffffffff
+0x00007fb509464a60:   ffffffffffffffff ffffffffffffffff
+0x00007fb509464a70:   ffffffffffffffff ffffffffffffffff
+0x00007fb509464a80:   ffffffffffffffff ffffffffffffffff
+0x00007fb509464a90:   ffffffffffffffff ffffffffffffffff
+0x00007fb509464aa0:   ffffffffffffffff ffffffffffffffff
+0x00007fb509464ab0:   0000000000000000 14a1524d6673cf00
+0x00007fb509464ac0:   000000000000015b 00007fb4bf3854fe
+0x00007fb509464ad0:   0000000000000000 0000000000000000
+0x00007fb509464ae0:   0000000000000000 0000000000000000
+0x00007fb509464af0:   0000000000000000 0000000000000000
+0x00007fb509464b00:   0000000000000000 0000000000000000
+0x00007fb509464b10:   0000000000000000 0000000000000000
+0x00007fb509464b20:   0000000000000000 0000000000000000
+0x00007fb509464b30:   0000000000000000 0000000000000000
+0x00007fb509464b40:   0000000000000000 0000000000000000
+0x00007fb509464b50:   0000000000000000 00007fb4bf4a5980
+0x00007fb509464b60:   0000000000000000 0000000000000000
+0x00007fb509464b70:   0000000000000000 0000000000000000
+0x00007fb509464b80:   0000000000000000 0000000000000000
+0x00007fb509464b90:   0000000000000000 00007fb4a54517ee
+0x00007fb509464ba0:   0000000000000000 0000000000000000 
+
+Instructions: (pc=0x00007fb55fe9c24b)
+0x00007fb55fe9c23b:   d2 4c 89 ce bf 02 00 00 00 b8 0e 00 00 00 0f 05
+0x00007fb55fe9c24b:   48 8b 84 24 08 01 00 00 64 48 33 04 25 28 00 00 
+
+Stack: [0x00007fb509456000,0x00007fb509466000],  sp=0x00007fb5094649b0,  free space=3a0000000000000018k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libpthread.so.0+0x1424b]  raise+0xcb
+
+
+---------------  P R O C E S S  ---------------
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 109184K, used 1553K [0x00007fb5464e0000, 0x00007fb54d8f0000, 0x00007fb55ba30000)
+  eden space 100032K, 1% used [0x00007fb5464e0000,0x00007fb5466644d8,0x00007fb54c690000)
+  from space 9152K, 0% used [0x00007fb54d000000,0x00007fb54d000000,0x00007fb54d8f0000)
+  to   space 9408K, 0% used [0x00007fb54c690000,0x00007fb54c690000,0x00007fb54cfc0000)
+ PSOldGen        total 107264K, used 84244K [0x00007fb51ba30000, 0x00007fb5222f0000, 0x00007fb5464e0000)
+  object space 107264K, 78% used [0x00007fb51ba30000,0x00007fb520c751f8,0x00007fb5222f0000)
+ PSPermGen       total 74752K, used 74662K [0x00007fb50ba30000, 0x00007fb510330000, 0x00007fb51ba30000)
+  object space 74752K, 99% used [0x00007fb50ba30000,0x00007fb510319880,0x00007fb510330000)
+
+Dynamic libraries:
+00400000-00404000 r-xp 00000000 00:37 1123325971                         /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/bin/glnxa64/comsollauncher
+00504000-00505000 rw-p 00004000 00:37 1123325971                         /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/bin/glnxa64/comsollauncher
+00e6c000-0ef4e000 rw-p 00000000 00:00 0                                  [heap]
+7fb45c000000-7fb45c832000 rw-p 00000000 00:00 0 
+7fb45c832000-7fb460000000 ---p 00000000 00:00 0 
+7fb46055f000-7fb460560000 ---p 00000000 00:00 0 
+7fb460560000-7fb460563000 ---p 00000000 00:00 0 
+7fb460563000-7fb460d60000 rwxp 00000000 00:00 0 
+7fb461d62000-7fb461d63000 ---p 00000000 00:00 0 
+7fb461d63000-7fb462563000 rwxp 00000000 00:00 0 
+7fb463565000-7fb463566000 ---p 00000000 00:00 0 
+7fb463566000-7fb463569000 ---p 00000000 00:00 0 
+7fb463569000-7fb463d66000 rwxp 00000000 00:00 0 
+7fb463e67000-7fb463e68000 ---p 00000000 00:00 0 
+7fb463e68000-7fb464668000 rwxp 00000000 00:00 0 
+7fb464e69000-7fb465569000 rw-s 103283000 00:0e 14439                     anon_inode:i915.gem
+7fb465569000-7fb46556a000 ---p 00000000 00:00 0 
+7fb46556a000-7fb46556d000 ---p 00000000 00:00 0 
+7fb46556d000-7fb465d6a000 rwxp 00000000 00:00 0 
+7fb46611a000-7fb46611b000 ---p 00000000 00:00 0 
+7fb46611b000-7fb46611e000 ---p 00000000 00:00 0 
+7fb46611e000-7fb46691b000 rwxp 00000000 00:00 0 
+7fb466d6c000-7fb466ec8000 r-xp 00000000 00:37 2545937958                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libxml2/2.9.10-gcc-9.3.0/lib/libxml2.so.2.9.10
+7fb466ec8000-7fb466ec9000 ---p 0015c000 00:37 2545937958                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libxml2/2.9.10-gcc-9.3.0/lib/libxml2.so.2.9.10
+7fb466ec9000-7fb466ed1000 r--p 0015c000 00:37 2545937958                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libxml2/2.9.10-gcc-9.3.0/lib/libxml2.so.2.9.10
+7fb466ed1000-7fb466ed3000 rw-p 00164000 00:37 2545937958                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libxml2/2.9.10-gcc-9.3.0/lib/libxml2.so.2.9.10
+7fb466ed3000-7fb466ed4000 rw-p 00000000 00:00 0 
+7fb466ed4000-7fb466fd4000 r--p 00000000 09:06 53091799                   /usr/lib/x86_64-linux-gnu/librsvg-2.so.2.47.0
+7fb466fd4000-7fb4674ac000 r-xp 00100000 09:06 53091799                   /usr/lib/x86_64-linux-gnu/librsvg-2.so.2.47.0
+7fb4674ac000-7fb467743000 r--p 005d8000 09:06 53091799                   /usr/lib/x86_64-linux-gnu/librsvg-2.so.2.47.0
+7fb467743000-7fb467744000 ---p 0086f000 09:06 53091799                   /usr/lib/x86_64-linux-gnu/librsvg-2.so.2.47.0
+7fb467744000-7fb4677fd000 r--p 0086f000 09:06 53091799                   /usr/lib/x86_64-linux-gnu/librsvg-2.so.2.47.0
+7fb4677fd000-7fb4677fe000 rw-p 00928000 09:06 53091799                   /usr/lib/x86_64-linux-gnu/librsvg-2.so.2.47.0
+7fb4677fe000-7fb4677ff000 rw-p 00000000 00:00 0 
+7fb4677ff000-7fb467800000 ---p 00000000 00:00 0 
+7fb467800000-7fb468000000 rwxp 00000000 00:00 0 
+7fb468000000-7fb46c000000 rw-s 00000000 00:01 484                        /memfd:pulseaudio (deleted)
+7fb46c000000-7fb470000000 rw-s 00000000 00:01 1032                       /memfd:pulseaudio (deleted)
+7fb470000000-7fb474000000 rw-s 00000000 00:01 3528                       /memfd:pulseaudio (deleted)
+7fb474000000-7fb47416c000 rw-p 00000000 00:00 0 
+7fb47416c000-7fb478000000 ---p 00000000 00:00 0 
+7fb478000000-7fb47c000000 rw-s 00000000 00:01 3528                       /memfd:pulseaudio (deleted)
+7fb47c000000-7fb47c4f0000 rw-p 00000000 00:00 0 
+7fb47c4f0000-7fb480000000 ---p 00000000 00:00 0 
+7fb480000000-7fb48011c000 rw-p 00000000 00:00 0 
+7fb48011c000-7fb484000000 ---p 00000000 00:00 0 
+7fb484000000-7fb484205000 rw-p 00000000 00:00 0 
+7fb484205000-7fb488000000 ---p 00000000 00:00 0 
+7fb488000000-7fb488112000 rw-p 00000000 00:00 0 
+7fb488112000-7fb48c000000 ---p 00000000 00:00 0 
+7fb48c13a000-7fb48c18a000 r--p 00000000 09:06 58467500                   /usr/share/icons/Humanity/icon-theme.cache
+7fb48c46d000-7fb48c4b7000 r--s 01a8d000 00:3e 128931213852               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/246/1/bundlefile
+7fb48c4b7000-7fb48c5f8000 rw-s 00000000 00:3e 124711709709               /home/pdavid/.cache/mesa_shader_cache/index
+7fb48c5f8000-7fb48c658000 rw-s 00000000 00:01 98350                      /SYSV00000000 (deleted)
+7fb48c658000-7fb48c65f000 r--p 00000000 09:06 53087831                   /usr/lib/x86_64-linux-gnu/libnss_resolve.so.2
+7fb48c65f000-7fb48c693000 r-xp 00007000 09:06 53087831                   /usr/lib/x86_64-linux-gnu/libnss_resolve.so.2
+7fb48c693000-7fb48c6a4000 r--p 0003b000 09:06 53087831                   /usr/lib/x86_64-linux-gnu/libnss_resolve.so.2
+7fb48c6a4000-7fb48c6a7000 r--p 0004b000 09:06 53087831                   /usr/lib/x86_64-linux-gnu/libnss_resolve.so.2
+7fb48c6a7000-7fb48c6a8000 rw-p 0004e000 09:06 53087831                   /usr/lib/x86_64-linux-gnu/libnss_resolve.so.2
+7fb48c6a8000-7fb48c6a9000 rw-p 00000000 00:00 0 
+7fb48c6a9000-7fb48c6aa000 ---p 00000000 00:00 0 
+7fb48c6aa000-7fb48ceaa000 rwxp 00000000 00:00 0 
+7fb48ceaa000-7fb48ceae000 r--p 00000000 09:06 53090277                   /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.28.0
+7fb48ceae000-7fb48cec1000 r-xp 00004000 09:06 53090277                   /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.28.0
+7fb48cec1000-7fb48cecb000 r--p 00017000 09:06 53090277                   /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.28.0
+7fb48cecb000-7fb48cecc000 r--p 00020000 09:06 53090277                   /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.28.0
+7fb48cecc000-7fb48cecd000 rw-p 00021000 09:06 53090277                   /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.28.0
+7fb48cecd000-7fb48cee1000 r--p 00000000 09:06 53092285                   /usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.11
+7fb48cee1000-7fb48cee4000 r-xp 00014000 09:06 53092285                   /usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.11
+7fb48cee4000-7fb48cf5b000 r--p 00017000 09:06 53092285                   /usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.11
+7fb48cf5b000-7fb48cf77000 r--p 0008d000 09:06 53092285                   /usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.11
+7fb48cf77000-7fb48cf78000 rw-p 000a9000 09:06 53092285                   /usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.11
+7fb48cf78000-7fb48cf80000 r--p 00000000 09:06 53088756                   /usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0
+7fb48cf80000-7fb48cfa9000 r-xp 00008000 09:06 53088756                   /usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0
+7fb48cfa9000-7fb48cfb3000 r--p 00031000 09:06 53088756                   /usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0
+7fb48cfb3000-7fb48cfb4000 ---p 0003b000 09:06 53088756                   /usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0
+7fb48cfb4000-7fb48cfb5000 r--p 0003b000 09:06 53088756                   /usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0
+7fb48cfb5000-7fb48cfb6000 rw-p 0003c000 09:06 53088756                   /usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0
+7fb48cfb6000-7fb48cfc2000 r--p 00000000 09:06 53084791                   /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.2.5
+7fb48cfc2000-7fb48d090000 r-xp 0000c000 09:06 53084791                   /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.2.5
+7fb48d090000-7fb48d0cd000 r--p 000da000 09:06 53084791                   /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.2.5
+7fb48d0cd000-7fb48d0cf000 r--p 00116000 09:06 53084791                   /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.2.5
+7fb48d0cf000-7fb48d0d4000 rw-p 00118000 09:06 53084791                   /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.2.5
+7fb48d0d4000-7fb48d0d6000 r--p 00000000 09:06 53093081                   /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.2
+7fb48d0d6000-7fb48d0f0000 r-xp 00002000 09:06 53093081                   /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.2
+7fb48d0f0000-7fb48d0f3000 r--p 0001c000 09:06 53093081                   /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.2
+7fb48d0f3000-7fb48d0f4000 r--p 0001e000 09:06 53093081                   /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.2
+7fb48d0f4000-7fb48d0f5000 rw-p 0001f000 09:06 53093081                   /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.2
+7fb48d0f5000-7fb48d11a000 r-xp 00000000 00:37 1181452361                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/XZ/5.2.5-gcc-9.3.0/lib/liblzma.so.5.2.5
+7fb48d11a000-7fb48d11b000 r--p 00024000 00:37 1181452361                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/XZ/5.2.5-gcc-9.3.0/lib/liblzma.so.5.2.5
+7fb48d11b000-7fb48d11c000 rw-p 00025000 00:37 1181452361                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/XZ/5.2.5-gcc-9.3.0/lib/liblzma.so.5.2.5
+7fb48d11c000-7fb48d11f000 r--p 00000000 09:06 53089244                   /usr/lib/x86_64-linux-gnu/libapparmor.so.1.6.1
+7fb48d11f000-7fb48d128000 r-xp 00003000 09:06 53089244                   /usr/lib/x86_64-linux-gnu/libapparmor.so.1.6.1
+7fb48d128000-7fb48d12f000 r--p 0000c000 09:06 53089244                   /usr/lib/x86_64-linux-gnu/libapparmor.so.1.6.1
+7fb48d12f000-7fb48d130000 r--p 00012000 09:06 53089244                   /usr/lib/x86_64-linux-gnu/libapparmor.so.1.6.1
+7fb48d130000-7fb48d131000 rw-p 00013000 09:06 53089244                   /usr/lib/x86_64-linux-gnu/libapparmor.so.1.6.1
+7fb48d131000-7fb48d136000 r-xp 00000000 09:06 53089296                   /usr/lib/x86_64-linux-gnu/libasyncns.so.0.3.1
+7fb48d136000-7fb48d335000 ---p 00005000 09:06 53089296                   /usr/lib/x86_64-linux-gnu/libasyncns.so.0.3.1
+7fb48d335000-7fb48d336000 r--p 00004000 09:06 53089296                   /usr/lib/x86_64-linux-gnu/libasyncns.so.0.3.1
+7fb48d336000-7fb48d337000 rw-p 00005000 09:06 53089296                   /usr/lib/x86_64-linux-gnu/libasyncns.so.0.3.1
+7fb48d337000-7fb48d33e000 r--p 00000000 09:06 53088624                   /usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.28
+7fb48d33e000-7fb48d391000 r-xp 00007000 09:06 53088624                   /usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.28
+7fb48d391000-7fb48d3ae000 r--p 0005a000 09:06 53088624                   /usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.28
+7fb48d3ae000-7fb48d3af000 ---p 00077000 09:06 53088624                   /usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.28
+7fb48d3af000-7fb48d3b2000 r--p 00077000 09:06 53088624                   /usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.28
+7fb48d3b2000-7fb48d3b3000 rw-p 0007a000 09:06 53088624                   /usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.28
+7fb48d3b3000-7fb48d3b5000 rw-p 00000000 00:00 0 
+7fb48d3b5000-7fb48d3b8000 ---p 00000000 00:00 0 
+7fb48d3b8000-7fb48d7b6000 rwxp 00000000 00:00 0 
+7fb48d7b6000-7fb48d7b9000 r--p 00000000 09:06 53092557                   /usr/lib/x86_64-linux-gnu/libwrap.so.0.7.6
+7fb48d7b9000-7fb48d7be000 r-xp 00003000 09:06 53092557                   /usr/lib/x86_64-linux-gnu/libwrap.so.0.7.6
+7fb48d7be000-7fb48d7c0000 r--p 00008000 09:06 53092557                   /usr/lib/x86_64-linux-gnu/libwrap.so.0.7.6
+7fb48d7c0000-7fb48d7c1000 r--p 00009000 09:06 53092557                   /usr/lib/x86_64-linux-gnu/libwrap.so.0.7.6
+7fb48d7c1000-7fb48d7c2000 rw-p 0000a000 09:06 53092557                   /usr/lib/x86_64-linux-gnu/libwrap.so.0.7.6
+7fb48d7c2000-7fb48d7d2000 r--p 00000000 09:06 53088654                   /usr/lib/x86_64-linux-gnu/libsystemd.so.0.28.0
+7fb48d7d2000-7fb48d847000 r-xp 00010000 09:06 53088654                   /usr/lib/x86_64-linux-gnu/libsystemd.so.0.28.0
+7fb48d847000-7fb48d86c000 r--p 00085000 09:06 53088654                   /usr/lib/x86_64-linux-gnu/libsystemd.so.0.28.0
+7fb48d86c000-7fb48d86f000 r--p 000a9000 09:06 53088654                   /usr/lib/x86_64-linux-gnu/libsystemd.so.0.28.0
+7fb48d86f000-7fb48d870000 rw-p 000ac000 09:06 53088654                   /usr/lib/x86_64-linux-gnu/libsystemd.so.0.28.0
+7fb48d870000-7fb48d871000 rw-p 00000000 00:00 0 
+7fb48d871000-7fb48d882000 r--p 00000000 09:06 53351264                   /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-13.99.so
+7fb48d882000-7fb48d8ca000 r-xp 00011000 09:06 53351264                   /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-13.99.so
+7fb48d8ca000-7fb48d8ef000 r--p 00059000 09:06 53351264                   /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-13.99.so
+7fb48d8ef000-7fb48d8f0000 ---p 0007e000 09:06 53351264                   /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-13.99.so
+7fb48d8f0000-7fb48d8f2000 r--p 0007e000 09:06 53351264                   /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-13.99.so
+7fb48d8f2000-7fb48d8f3000 rw-p 00080000 09:06 53351264                   /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-13.99.so
+7fb48d8f3000-7fb48d8ff000 r--p 00000000 09:06 53084337                   /usr/lib/x86_64-linux-gnu/libpulse.so.0.21.2
+7fb48d8ff000-7fb48d92f000 r-xp 0000c000 09:06 53084337                   /usr/lib/x86_64-linux-gnu/libpulse.so.0.21.2
+7fb48d92f000-7fb48d945000 r--p 0003c000 09:06 53084337                   /usr/lib/x86_64-linux-gnu/libpulse.so.0.21.2
+7fb48d945000-7fb48d947000 r--p 00051000 09:06 53084337                   /usr/lib/x86_64-linux-gnu/libpulse.so.0.21.2
+7fb48d947000-7fb48d948000 rw-p 00053000 09:06 53084337                   /usr/lib/x86_64-linux-gnu/libpulse.so.0.21.2
+7fb48d977000-7fb48d97a000 ---p 00000000 00:00 0 
+7fb48d97a000-7fb48dd78000 rwxp 00000000 00:00 0 
+7fb48dd78000-7fb48dd7b000 ---p 00000000 00:00 0 
+7fb48dd7b000-7fb48e179000 rwxp 00000000 00:00 0 
+7fb48e179000-7fb48e188000 r--p 00000000 09:06 56098893                   /usr/share/fonts/truetype/ttf-bitstream-vera/VeraBd.ttf
+7fb48e188000-7fb48e1e0000 r--p 00000000 09:06 56098908                   /usr/share/fonts/truetype/ubuntu/Ubuntu-BI.ttf
+7fb48e1e0000-7fb48e23f000 r--p 00000000 09:06 56098915                   /usr/share/fonts/truetype/ubuntu/Ubuntu-RI.ttf
+7fb48e23f000-7fb48e297000 r--p 00000000 09:06 56098908                   /usr/share/fonts/truetype/ubuntu/Ubuntu-BI.ttf
+7fb48e297000-7fb48e2f6000 r--p 00000000 09:06 56098915                   /usr/share/fonts/truetype/ubuntu/Ubuntu-RI.ttf
+7fb48e2f6000-7fb48e302000 r-xp 00000000 00:3e 107374261813               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-cairo-gtk-3650.so
+7fb48e302000-7fb48e402000 ---p 0000c000 00:3e 107374261813               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-cairo-gtk-3650.so
+7fb48e402000-7fb48e403000 rw-p 0000c000 00:3e 107374261813               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-cairo-gtk-3650.so
+7fb48e403000-7fb48e40f000 r-xp 00000000 00:37 3543793706                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfljnitextrenderer.so
+7fb48e40f000-7fb48e50e000 ---p 0000c000 00:37 3543793706                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfljnitextrenderer.so
+7fb48e50e000-7fb48e50f000 rw-p 0000b000 00:37 3543793706                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfljnitextrenderer.so
+7fb48e50f000-7fb48e510000 ---p 00000000 00:00 0 
+7fb48e510000-7fb48ed10000 rwxp 00000000 00:00 0 
+7fb48ed10000-7fb48ee51000 rw-s 00000000 00:3e 124711709709               /home/pdavid/.cache/mesa_shader_cache/index
+7fb48ee51000-7fb48ee55000 r--p 00000000 09:06 53092731                   /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.4
+7fb48ee55000-7fb48eee7000 r-xp 00004000 09:06 53092731                   /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.4
+7fb48eee7000-7fb48eef8000 r--p 00096000 09:06 53092731                   /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.4
+7fb48eef8000-7fb48eef9000 r--p 000a6000 09:06 53092731                   /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.4
+7fb48eef9000-7fb48eefa000 rw-p 000a7000 09:06 53092731                   /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.4
+7fb48eefa000-7fb48f05f000 r--p 00000000 09:06 53086588                   /usr/lib/x86_64-linux-gnu/dri/i965_dri.so
+7fb48f05f000-7fb48fa82000 r-xp 00165000 09:06 53086588                   /usr/lib/x86_64-linux-gnu/dri/i965_dri.so
+7fb48fa82000-7fb48fd54000 r--p 00b88000 09:06 53086588                   /usr/lib/x86_64-linux-gnu/dri/i965_dri.so
+7fb48fd54000-7fb48fd55000 ---p 00e5a000 09:06 53086588                   /usr/lib/x86_64-linux-gnu/dri/i965_dri.so
+7fb48fd55000-7fb48fe61000 r--p 00e5a000 09:06 53086588                   /usr/lib/x86_64-linux-gnu/dri/i965_dri.so
+7fb48fe61000-7fb48ff90000 rw-p 00f66000 09:06 53086588                   /usr/lib/x86_64-linux-gnu/dri/i965_dri.so
+7fb48ff90000-7fb490000000 rw-p 00000000 00:00 0 
+7fb490000000-7fb490025000 rw-p 00000000 00:00 0 
+7fb490025000-7fb494000000 ---p 00000000 00:00 0 
+7fb494000000-7fb49433d000 rw-p 00000000 00:00 0 
+7fb49433d000-7fb498000000 ---p 00000000 00:00 0 
+7fb498000000-7fb49811f000 rw-p 00000000 00:00 0 
+7fb49811f000-7fb49c000000 ---p 00000000 00:00 0 
+7fb49c000000-7fb49c2cf000 rw-p 00000000 00:00 0 
+7fb49c2cf000-7fb4a0000000 ---p 00000000 00:00 0 
+7fb4a0000000-7fb4a010a000 rw-p 00000000 00:00 0 
+7fb4a010a000-7fb4a4000000 ---p 00000000 00:00 0 
+7fb4a4004000-7fb4a4006000 r--p 00000000 09:06 53089484                   /usr/lib/x86_64-linux-gnu/libcanberra-0.30/libcanberra-pulse.so
+7fb4a4006000-7fb4a400a000 r-xp 00002000 09:06 53089484                   /usr/lib/x86_64-linux-gnu/libcanberra-0.30/libcanberra-pulse.so
+7fb4a400a000-7fb4a400b000 r--p 00006000 09:06 53089484                   /usr/lib/x86_64-linux-gnu/libcanberra-0.30/libcanberra-pulse.so
+7fb4a400b000-7fb4a400c000 ---p 00007000 09:06 53089484                   /usr/lib/x86_64-linux-gnu/libcanberra-0.30/libcanberra-pulse.so
+7fb4a400c000-7fb4a400d000 r--p 00007000 09:06 53089484                   /usr/lib/x86_64-linux-gnu/libcanberra-0.30/libcanberra-pulse.so
+7fb4a400d000-7fb4a400e000 rw-p 00008000 09:06 53089484                   /usr/lib/x86_64-linux-gnu/libcanberra-0.30/libcanberra-pulse.so
+7fb4a400e000-7fb4a401d000 r--p 00000000 09:06 56098893                   /usr/share/fonts/truetype/ttf-bitstream-vera/VeraBd.ttf
+7fb4a401d000-7fb4a4025000 r-xp 00000000 00:37 1469804749                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libpciaccess/0.16-gcc-9.3.0/lib/libpciaccess.so.0.11.1
+7fb4a4025000-7fb4a4026000 r--p 00007000 00:37 1469804749                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libpciaccess/0.16-gcc-9.3.0/lib/libpciaccess.so.0.11.1
+7fb4a4026000-7fb4a4027000 rw-p 00008000 00:37 1469804749                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libpciaccess/0.16-gcc-9.3.0/lib/libpciaccess.so.0.11.1
+7fb4a4027000-7fb4a402e000 r-xp 00000000 00:37 2808744680                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm_nouveau.so.2.0.0
+7fb4a402e000-7fb4a402f000 r--p 00006000 00:37 2808744680                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm_nouveau.so.2.0.0
+7fb4a402f000-7fb4a4030000 rw-p 00007000 00:37 2808744680                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm_nouveau.so.2.0.0
+7fb4a4030000-7fb4a403c000 r-xp 00000000 00:37 2808744684                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm_radeon.so.1.0.1
+7fb4a403c000-7fb4a403d000 r--p 0000b000 00:37 2808744684                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm_radeon.so.1.0.1
+7fb4a403d000-7fb4a403e000 rw-p 0000c000 00:37 2808744684                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm_radeon.so.1.0.1
+7fb4a403e000-7fb4a4060000 r-xp 00000000 00:37 2808744676                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm_intel.so.1.0.0
+7fb4a4060000-7fb4a4061000 r--p 00021000 00:37 2808744676                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm_intel.so.1.0.0
+7fb4a4061000-7fb4a4062000 rw-p 00022000 00:37 2808744676                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm_intel.so.1.0.0
+7fb4a4086000-7fb4a4093000 r--p 00000000 09:06 53084318                   /usr/lib/x86_64-linux-gnu/libglapi.so.0.0.0
+7fb4a4093000-7fb4a40a1000 r-xp 0000d000 09:06 53084318                   /usr/lib/x86_64-linux-gnu/libglapi.so.0.0.0
+7fb4a40a1000-7fb4a40ba000 r--p 0001b000 09:06 53084318                   /usr/lib/x86_64-linux-gnu/libglapi.so.0.0.0
+7fb4a40ba000-7fb4a40bb000 ---p 00034000 09:06 53084318                   /usr/lib/x86_64-linux-gnu/libglapi.so.0.0.0
+7fb4a40bb000-7fb4a40bf000 r--p 00034000 09:06 53084318                   /usr/lib/x86_64-linux-gnu/libglapi.so.0.0.0
+7fb4a40bf000-7fb4a40c0000 rw-p 00038000 09:06 53084318                   /usr/lib/x86_64-linux-gnu/libglapi.so.0.0.0
+7fb4a40c0000-7fb4a40c1000 rw-p 00000000 00:00 0 
+7fb4a413a000-7fb4a413d000 r--p 00000000 09:06 53086568                   /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+7fb4a413d000-7fb4a4158000 r-xp 00003000 09:06 53086568                   /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+7fb4a4158000-7fb4a415c000 r--p 0001e000 09:06 53086568                   /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+7fb4a415c000-7fb4a415d000 r--p 00021000 09:06 53086568                   /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+7fb4a415d000-7fb4a415e000 rw-p 00022000 09:06 53086568                   /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+7fb4a415e000-7fb4a416e000 rw-p 00000000 00:00 0 
+7fb4a416e000-7fb4a41ae000 r--p 00000000 09:06 53086583                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+7fb4a41ae000-7fb4a41ed000 r-xp 00040000 09:06 53086583                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+7fb4a41ed000-7fb4a4201000 r--p 0007f000 09:06 53086583                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+7fb4a4201000-7fb4a421d000 r--p 00092000 09:06 53086583                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+7fb4a421d000-7fb4a421e000 rw-p 000ae000 09:06 53086583                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+7fb4a421e000-7fb4a4226000 rw-p 00000000 00:00 0 
+7fb4a4226000-7fb4a4269000 r--p 00000000 09:06 53084848                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+7fb4a4269000-7fb4a4289000 r-xp 00043000 09:06 53084848                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+7fb4a4289000-7fb4a429e000 r--p 00063000 09:06 53084848                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+7fb4a429e000-7fb4a42ac000 r--p 00077000 09:06 53084848                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+7fb4a42ac000-7fb4a42ad000 rw-p 00085000 09:06 53084848                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+7fb4a42ad000-7fb4a42ae000 rw-p 00000000 00:00 0 
+7fb4a42ba000-7fb4a42cb000 r--p 00000000 09:06 56098891                   /usr/share/fonts/truetype/ttf-bitstream-vera/Vera.ttf
+7fb4a42d0000-7fb4a42d4000 rw-s 1052d6000 00:0e 14439                     anon_inode:i915.gem
+7fb4a42d8000-7fb4a42dd000 rw-s 100910000 00:0e 14439                     anon_inode:i915.gem
+7fb4a42dd000-7fb4a43e9000 r-xp 00000000 00:37 3543793709                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfltextrenderer.so
+7fb4a43e9000-7fb4a44e8000 ---p 0010c000 00:37 3543793709                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfltextrenderer.so
+7fb4a44e8000-7fb4a44f4000 rw-p 0010b000 00:37 3543793709                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfltextrenderer.so
+7fb4a44f4000-7fb4a489b000 r-xp 00000000 00:37 3543793730                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfl3d_direct_swt_ogl.so
+7fb4a489b000-7fb4a499a000 ---p 003a7000 00:37 3543793730                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfl3d_direct_swt_ogl.so
+7fb4a499a000-7fb4a49c5000 rw-p 003a6000 00:37 3543793730                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfl3d_direct_swt_ogl.so
+7fb4a49c5000-7fb4a49d5000 rw-p 00000000 00:00 0 
+7fb4a49d5000-7fb4a4aa6000 r-xp 00000000 00:37 3543793703                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflgraphics_swt_ogl.so
+7fb4a4aa6000-7fb4a4ba5000 ---p 000d1000 00:37 3543793703                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflgraphics_swt_ogl.so
+7fb4a4ba5000-7fb4a4bb0000 rw-p 000d0000 00:37 3543793703                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflgraphics_swt_ogl.so
+7fb4a4bb0000-7fb4a4c02000 r--p 00000000 09:06 56098907                   /usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf
+7fb4a4c02000-7fb4a4c54000 r--p 00000000 09:06 56098907                   /usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf
+7fb4a4c55000-7fb4a4f55000 rw-s 104579000 00:0e 14439                     anon_inode:i915.gem
+7fb4a4f55000-7fb4a5255000 rw-s 106b19000 00:0e 14439                     anon_inode:i915.gem
+7fb4a5255000-7fb4a5355000 rw-s 105c13000 00:0e 14439                     anon_inode:i915.gem
+7fb4a5355000-7fb4a5455000 rw-s 106e19000 00:0e 14439                     anon_inode:i915.gem
+7fb4a5455000-7fb4a5464000 r--p 00000000 09:06 53090571                   /usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.522
+7fb4a5464000-7fb4a5497000 r-xp 0000f000 09:06 53090571                   /usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.522
+7fb4a5497000-7fb4a54ca000 r--p 00042000 09:06 53090571                   /usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.522
+7fb4a54ca000-7fb4a54cb000 ---p 00075000 09:06 53090571                   /usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.522
+7fb4a54cb000-7fb4a54cd000 r--p 00075000 09:06 53090571                   /usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.522
+7fb4a54cd000-7fb4a54ce000 rw-p 00077000 09:06 53090571                   /usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.522
+7fb4a54e1000-7fb4a54f1000 r-xp 00000000 00:37 2808744668                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm.so.2.4.0
+7fb4a54f1000-7fb4a54f2000 r--p 0000f000 00:37 2808744668                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm.so.2.4.0
+7fb4a54f2000-7fb4a54f3000 rw-p 00010000 00:37 2808744668                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libdrm/2.4.100-gcc-9.3.0/lib/libdrm.so.2.4.0
+7fb4a54f3000-7fb4a54f5000 r--p 00000000 09:06 53086784                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+7fb4a54f5000-7fb4a54f9000 r-xp 00002000 09:06 53086784                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+7fb4a54f9000-7fb4a54fa000 r--p 00006000 09:06 53086784                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+7fb4a54fa000-7fb4a54fb000 ---p 00007000 09:06 53086784                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+7fb4a54fb000-7fb4a54fc000 r--p 00007000 09:06 53086784                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+7fb4a54fc000-7fb4a54fd000 rw-p 00008000 09:06 53086784                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+7fb4a54fd000-7fb4a5500000 r--p 00000000 09:06 53087793                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+7fb4a5500000-7fb4a5504000 r-xp 00003000 09:06 53087793                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+7fb4a5504000-7fb4a5506000 r--p 00007000 09:06 53087793                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+7fb4a5506000-7fb4a5507000 r--p 00008000 09:06 53087793                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+7fb4a5507000-7fb4a5508000 rw-p 00009000 09:06 53087793                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+7fb4a5508000-7fb4a5513000 r-xp 00000000 00:3e 107376619194               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-atk-gtk-3650.so
+7fb4a5513000-7fb4a5612000 ---p 0000b000 00:3e 107376619194               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-atk-gtk-3650.so
+7fb4a5612000-7fb4a5613000 rw-p 0000a000 00:3e 107376619194               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-atk-gtk-3650.so
+7fb4a5613000-7fb4a5616000 ---p 00000000 00:00 0 
+7fb4a5616000-7fb4a5a14000 rwxp 00000000 00:00 0 
+7fb4a5a99000-7fb4a5b99000 rw-s 107bb9000 00:0e 14439                     anon_inode:i915.gem
+7fb4a5b99000-7fb4a5c99000 rw-s 105914000 00:0e 14439                     anon_inode:i915.gem
+7fb4a5c99000-7fb4a5d59000 rw-s 105a14000 00:0e 14439                     anon_inode:i915.gem
+7fb4a5d59000-7fb4a5d9f000 r--s 003ab000 00:37 6772902418                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.ui.workbench_3.6.0.I20100603-1100.jar
+7fb4a5d9f000-7fb4a5e1f000 rw-s 10808d000 00:0e 14439                     anon_inode:i915.gem
+7fb4a5e1f000-7fb4a5e7f000 rw-s 00000000 00:01 98347                      /SYSV00000000 (deleted)
+7fb4a5e7f000-7fb4a5ea4000 r--s 00000000 09:06 59901666                   /usr/share/mime/mime.cache
+7fb4a5ea4000-7fb4a5efb000 r--p 00000000 09:06 56098914                   /usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf
+7fb4a5efb000-7fb4a5f52000 r--p 00000000 09:06 56098914                   /usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf
+7fb4a5f52000-7fb4a5f53000 ---p 00000000 00:00 0 
+7fb4a5f53000-7fb4a6753000 rwxp 00000000 00:00 0 
+7fb4a6753000-7fb4a6754000 ---p 00000000 00:00 0 
+7fb4a6754000-7fb4a6757000 ---p 00000000 00:00 0 
+7fb4a6757000-7fb4a6f54000 rwxp 00000000 00:00 0 
+7fb4a6f54000-7fb4a6f55000 ---p 00000000 00:00 0 
+7fb4a6f55000-7fb4a7755000 rwxp 00000000 00:00 0 
+7fb4a7755000-7fb4a77e6000 r--p 00000000 09:06 56099287                   /usr/share/glib-2.0/schemas/gschemas.compiled (deleted)
+7fb4a77e6000-7fb4a77e8000 r--p 00000000 09:06 53091337                   /usr/lib/x86_64-linux-gnu/libogg.so.0.8.4
+7fb4a77e8000-7fb4a77ed000 r-xp 00002000 09:06 53091337                   /usr/lib/x86_64-linux-gnu/libogg.so.0.8.4
+7fb4a77ed000-7fb4a77f0000 r--p 00007000 09:06 53091337                   /usr/lib/x86_64-linux-gnu/libogg.so.0.8.4
+7fb4a77f0000-7fb4a77f1000 ---p 0000a000 09:06 53091337                   /usr/lib/x86_64-linux-gnu/libogg.so.0.8.4
+7fb4a77f1000-7fb4a77f2000 r--p 0000a000 09:06 53091337                   /usr/lib/x86_64-linux-gnu/libogg.so.0.8.4
+7fb4a77f2000-7fb4a77f3000 rw-p 0000b000 09:06 53091337                   /usr/lib/x86_64-linux-gnu/libogg.so.0.8.4
+7fb4a77f3000-7fb4a77f6000 r--p 00000000 09:06 53092283                   /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7fb4a77f6000-7fb4a780d000 r-xp 00003000 09:06 53092283                   /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7fb4a780d000-7fb4a781e000 r--p 0001a000 09:06 53092283                   /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7fb4a781e000-7fb4a781f000 ---p 0002b000 09:06 53092283                   /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7fb4a781f000-7fb4a7820000 r--p 0002b000 09:06 53092283                   /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7fb4a7820000-7fb4a7821000 rw-p 0002c000 09:06 53092283                   /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7fb4a7821000-7fb4a7823000 r--p 00000000 09:06 53090851                   /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1
+7fb4a7823000-7fb4a7828000 r-xp 00002000 09:06 53090851                   /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1
+7fb4a7828000-7fb4a782a000 r--p 00007000 09:06 53090851                   /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1
+7fb4a782a000-7fb4a782b000 r--p 00008000 09:06 53090851                   /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1
+7fb4a782b000-7fb4a782c000 rw-p 00009000 09:06 53090851                   /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1
+7fb4a782c000-7fb4a7830000 r--p 00000000 09:06 53084506                   /usr/lib/x86_64-linux-gnu/libtdb.so.1.4.3
+7fb4a7830000-7fb4a783e000 r-xp 00004000 09:06 53084506                   /usr/lib/x86_64-linux-gnu/libtdb.so.1.4.3
+7fb4a783e000-7fb4a7844000 r--p 00012000 09:06 53084506                   /usr/lib/x86_64-linux-gnu/libtdb.so.1.4.3
+7fb4a7844000-7fb4a7845000 r--p 00017000 09:06 53084506                   /usr/lib/x86_64-linux-gnu/libtdb.so.1.4.3
+7fb4a7845000-7fb4a7846000 rw-p 00018000 09:06 53084506                   /usr/lib/x86_64-linux-gnu/libtdb.so.1.4.3
+7fb4a7846000-7fb4a7849000 r--p 00000000 09:06 53089490                   /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+7fb4a7849000-7fb4a7853000 r-xp 00003000 09:06 53089490                   /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+7fb4a7853000-7fb4a7857000 r--p 0000d000 09:06 53089490                   /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+7fb4a7857000-7fb4a7858000 r--p 00010000 09:06 53089490                   /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+7fb4a7858000-7fb4a7859000 rw-p 00011000 09:06 53089490                   /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+7fb4a786b000-7fb4a786d000 r--p 00000000 09:06 53086788                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+7fb4a786d000-7fb4a7870000 r-xp 00002000 09:06 53086788                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+7fb4a7870000-7fb4a7871000 r--p 00005000 09:06 53086788                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+7fb4a7871000-7fb4a7872000 ---p 00006000 09:06 53086788                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+7fb4a7872000-7fb4a7873000 r--p 00006000 09:06 53086788                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+7fb4a7873000-7fb4a7874000 rw-p 00007000 09:06 53086788                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+7fb4a7874000-7fb4a7881000 r--p 00000000 09:06 56098898                   /usr/share/fonts/truetype/ttf-bitstream-vera/VeraMono.ttf
+7fb4a7881000-7fb4a7888000 r--s 00000000 09:06 53091849                   /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7fb4a7888000-7fb4a788a000 r-xp 00000000 09:06 53087778                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libadwaita.so
+7fb4a788a000-7fb4a7a8a000 ---p 00002000 09:06 53087778                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libadwaita.so
+7fb4a7a8a000-7fb4a7a8b000 r--p 00002000 09:06 53087778                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libadwaita.so
+7fb4a7a8b000-7fb4a7a8c000 rw-p 00003000 09:06 53087778                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libadwaita.so
+7fb4a7a8c000-7fb4a7a9b000 r--p 00000000 09:06 53089319                   /usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+7fb4a7a9b000-7fb4a7ab1000 r-xp 0000f000 09:06 53089319                   /usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+7fb4a7ab1000-7fb4a7abe000 r--p 00025000 09:06 53089319                   /usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+7fb4a7abe000-7fb4a7abf000 ---p 00032000 09:06 53089319                   /usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+7fb4a7abf000-7fb4a7ac2000 r--p 00032000 09:06 53089319                   /usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+7fb4a7ac2000-7fb4a7ac3000 rw-p 00035000 09:06 53089319                   /usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+7fb4a7ac3000-7fb4a7b14000 r-xp 00000000 00:37 4138603549                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/DBus/1.13.12-gcc-9.3.0/lib/libdbus-1.so.3.26.1
+7fb4a7b14000-7fb4a7b15000 ---p 00051000 00:37 4138603549                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/DBus/1.13.12-gcc-9.3.0/lib/libdbus-1.so.3.26.1
+7fb4a7b15000-7fb4a7b16000 r--p 00051000 00:37 4138603549                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/DBus/1.13.12-gcc-9.3.0/lib/libdbus-1.so.3.26.1
+7fb4a7b16000-7fb4a7b17000 rw-p 00052000 00:37 4138603549                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/DBus/1.13.12-gcc-9.3.0/lib/libdbus-1.so.3.26.1
+7fb4a7b17000-7fb4a7b18000 rw-p 00000000 00:00 0 
+7fb4a7b18000-7fb4a7b24000 r--p 00000000 09:06 53089304                   /usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+7fb4a7b24000-7fb4a7b3d000 r-xp 0000c000 09:06 53089304                   /usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+7fb4a7b3d000-7fb4a7b4b000 r--p 00025000 09:06 53089304                   /usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+7fb4a7b4b000-7fb4a7b4c000 ---p 00033000 09:06 53089304                   /usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+7fb4a7b4c000-7fb4a7b4d000 r--p 00033000 09:06 53089304                   /usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+7fb4a7b4d000-7fb4a7b4e000 rw-p 00034000 09:06 53089304                   /usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+7fb4a7b4e000-7fb4a7b4f000 rw-p 00000000 00:00 0 
+7fb4a7b55000-7fb4a7b57000 r--p 00000000 09:06 53092287                   /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+7fb4a7b57000-7fb4a7b5c000 r-xp 00002000 09:06 53092287                   /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+7fb4a7b5c000-7fb4a7b5d000 r--p 00007000 09:06 53092287                   /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+7fb4a7b5d000-7fb4a7b5e000 ---p 00008000 09:06 53092287                   /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+7fb4a7b5e000-7fb4a7b5f000 r--p 00008000 09:06 53092287                   /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+7fb4a7b5f000-7fb4a7b60000 rw-p 00009000 09:06 53092287                   /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+7fb4a7b60000-7fb4a7b62000 r--p 00000000 09:06 53089486                   /usr/lib/x86_64-linux-gnu/libcanberra-gtk.so.0.1.9
+7fb4a7b62000-7fb4a7b64000 r-xp 00002000 09:06 53089486                   /usr/lib/x86_64-linux-gnu/libcanberra-gtk.so.0.1.9
+7fb4a7b64000-7fb4a7b65000 r--p 00004000 09:06 53089486                   /usr/lib/x86_64-linux-gnu/libcanberra-gtk.so.0.1.9
+7fb4a7b65000-7fb4a7b66000 r--p 00004000 09:06 53089486                   /usr/lib/x86_64-linux-gnu/libcanberra-gtk.so.0.1.9
+7fb4a7b66000-7fb4a7b67000 rw-p 00005000 09:06 53089486                   /usr/lib/x86_64-linux-gnu/libcanberra-gtk.so.0.1.9
+7fb4a7b67000-7fb4a7b69000 r--p 00000000 09:06 53087811                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+7fb4a7b69000-7fb4a7b6c000 r-xp 00002000 09:06 53087811                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+7fb4a7b6c000-7fb4a7b6d000 r--p 00005000 09:06 53087811                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+7fb4a7b6d000-7fb4a7b6e000 ---p 00006000 09:06 53087811                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+7fb4a7b6e000-7fb4a7b6f000 r--p 00006000 09:06 53087811                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+7fb4a7b6f000-7fb4a7b70000 rw-p 00007000 09:06 53087811                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+7fb4a7b70000-7fb4a7b73000 r--p 00000000 09:06 53087786                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libpixmap.so
+7fb4a7b73000-7fb4a7b79000 r-xp 00003000 09:06 53087786                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libpixmap.so
+7fb4a7b79000-7fb4a7b7b000 r--p 00009000 09:06 53087786                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libpixmap.so
+7fb4a7b7b000-7fb4a7b7c000 ---p 0000b000 09:06 53087786                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libpixmap.so
+7fb4a7b7c000-7fb4a7b7d000 r--p 0000b000 09:06 53087786                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libpixmap.so
+7fb4a7b7d000-7fb4a7b7e000 rw-p 0000c000 09:06 53087786                   /usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/engines/libpixmap.so
+7fb4a7b7e000-7fb4a7b8c000 r--p 00000000 09:06 53087813                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libgail.so
+7fb4a7b8c000-7fb4a7bbd000 r-xp 0000e000 09:06 53087813                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libgail.so
+7fb4a7bbd000-7fb4a7bd2000 r--p 0003f000 09:06 53087813                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libgail.so
+7fb4a7bd2000-7fb4a7bd3000 r--p 00053000 09:06 53087813                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libgail.so
+7fb4a7bd3000-7fb4a7bd5000 rw-p 00054000 09:06 53087813                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libgail.so
+7fb4a7bd5000-7fb4a7bd7000 r--p 00000000 09:06 53089641                   /usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.5
+7fb4a7bd7000-7fb4a7bdb000 r-xp 00002000 09:06 53089641                   /usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.5
+7fb4a7bdb000-7fb4a7bdd000 r--p 00006000 09:06 53089641                   /usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.5
+7fb4a7bdd000-7fb4a7bde000 r--p 00007000 09:06 53089641                   /usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.5
+7fb4a7bde000-7fb4a7bdf000 rw-p 00008000 09:06 53089641                   /usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.5
+7fb4a7bdf000-7fb4a7c28000 r-xp 00000000 00:37 3870921255                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/util-linux/2.35-gcc-9.3.0/lib/libblkid.so.1.1.0
+7fb4a7c28000-7fb4a7c2c000 r--p 00048000 00:37 3870921255                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/util-linux/2.35-gcc-9.3.0/lib/libblkid.so.1.1.0
+7fb4a7c2c000-7fb4a7c2d000 rw-p 0004c000 00:37 3870921255                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/util-linux/2.35-gcc-9.3.0/lib/libblkid.so.1.1.0
+7fb4a7c2d000-7fb4a7c55000 r-xp 00000000 00:37 2277400119                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/expat/2.2.9-gcc-9.3.0/lib/libexpat.so.1.6.11
+7fb4a7c55000-7fb4a7c56000 ---p 00028000 00:37 2277400119                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/expat/2.2.9-gcc-9.3.0/lib/libexpat.so.1.6.11
+7fb4a7c56000-7fb4a7c58000 r--p 00028000 00:37 2277400119                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/expat/2.2.9-gcc-9.3.0/lib/libexpat.so.1.6.11
+7fb4a7c58000-7fb4a7c59000 rw-p 0002a000 00:37 2277400119                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/expat/2.2.9-gcc-9.3.0/lib/libexpat.so.1.6.11
+7fb4a7c59000-7fb4a7c6a000 r-xp 00000000 00:37 373686319                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/bzip2/1.0.8-gcc-9.3.0/lib/libbz2.so.1.0.8
+7fb4a7c6a000-7fb4a7c6b000 r--p 00010000 00:37 373686319                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/bzip2/1.0.8-gcc-9.3.0/lib/libbz2.so.1.0.8
+7fb4a7c6b000-7fb4a7c6c000 rw-p 00011000 00:37 373686319                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/bzip2/1.0.8-gcc-9.3.0/lib/libbz2.so.1.0.8
+7fb4a7c6c000-7fb4a7cae000 r-xp 00000000 00:37 1468515971                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/PCRE/8.44-gcc-9.3.0/lib/libpcre.so.1.2.12
+7fb4a7cae000-7fb4a7caf000 r--p 00041000 00:37 1468515971                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/PCRE/8.44-gcc-9.3.0/lib/libpcre.so.1.2.12
+7fb4a7caf000-7fb4a7cb0000 rw-p 00042000 00:37 1468515971                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/PCRE/8.44-gcc-9.3.0/lib/libpcre.so.1.2.12
+7fb4a7cb0000-7fb4a7cb8000 r-xp 00000000 00:37 907538520                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libffi/3.3-gcc-9.3.0/lib64/libffi.so.7.1.0
+7fb4a7cb8000-7fb4a7cb9000 ---p 00008000 00:37 907538520                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libffi/3.3-gcc-9.3.0/lib64/libffi.so.7.1.0
+7fb4a7cb9000-7fb4a7cba000 r--p 00008000 00:37 907538520                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libffi/3.3-gcc-9.3.0/lib64/libffi.so.7.1.0
+7fb4a7cba000-7fb4a7cbb000 rw-p 00009000 00:37 907538520                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libffi/3.3-gcc-9.3.0/lib64/libffi.so.7.1.0
+7fb4a7cbb000-7fb4a7cbd000 r--p 00000000 09:06 53086699                   /usr/lib/x86_64-linux-gnu/libfribidi.so.0.4.0
+7fb4a7cbd000-7fb4a7cc1000 r-xp 00002000 09:06 53086699                   /usr/lib/x86_64-linux-gnu/libfribidi.so.0.4.0
+7fb4a7cc1000-7fb4a7cd6000 r--p 00006000 09:06 53086699                   /usr/lib/x86_64-linux-gnu/libfribidi.so.0.4.0
+7fb4a7cd6000-7fb4a7cd7000 r--p 0001a000 09:06 53086699                   /usr/lib/x86_64-linux-gnu/libfribidi.so.0.4.0
+7fb4a7cd7000-7fb4a7cd8000 rw-p 0001b000 09:06 53086699                   /usr/lib/x86_64-linux-gnu/libfribidi.so.0.4.0
+7fb4a7cd8000-7fb4a7dd5000 r-xp 00000000 00:37 3066701397                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/HarfBuzz/2.6.4-gcc-9.3.0/lib/libharfbuzz.so.0.20600.4
+7fb4a7dd5000-7fb4a7dd6000 ---p 000fd000 00:37 3066701397                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/HarfBuzz/2.6.4-gcc-9.3.0/lib/libharfbuzz.so.0.20600.4
+7fb4a7dd6000-7fb4a7dd7000 r--p 000fd000 00:37 3066701397                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/HarfBuzz/2.6.4-gcc-9.3.0/lib/libharfbuzz.so.0.20600.4
+7fb4a7dd7000-7fb4a7dd8000 rw-p 000fe000 00:37 3066701397                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/HarfBuzz/2.6.4-gcc-9.3.0/lib/libharfbuzz.so.0.20600.4
+7fb4a7dd8000-7fb4a7dd9000 rw-p 00000000 00:00 0 
+7fb4a7dd9000-7fb4a7ddd000 r--p 00000000 09:06 53084978                   /usr/lib/x86_64-linux-gnu/libresolv-2.31.so
+7fb4a7ddd000-7fb4a7ded000 r-xp 00004000 09:06 53084978                   /usr/lib/x86_64-linux-gnu/libresolv-2.31.so
+7fb4a7ded000-7fb4a7df1000 r--p 00014000 09:06 53084978                   /usr/lib/x86_64-linux-gnu/libresolv-2.31.so
+7fb4a7df1000-7fb4a7df2000 r--p 00017000 09:06 53084978                   /usr/lib/x86_64-linux-gnu/libresolv-2.31.so
+7fb4a7df2000-7fb4a7df3000 rw-p 00018000 09:06 53084978                   /usr/lib/x86_64-linux-gnu/libresolv-2.31.so
+7fb4a7df3000-7fb4a7df5000 rw-p 00000000 00:00 0 
+7fb4a7df5000-7fb4a7e4c000 r-xp 00000000 00:37 3870921259                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/util-linux/2.35-gcc-9.3.0/lib/libmount.so.1.1.0
+7fb4a7e4c000-7fb4a7e4d000 ---p 00057000 00:37 3870921259                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/util-linux/2.35-gcc-9.3.0/lib/libmount.so.1.1.0
+7fb4a7e4d000-7fb4a7e4e000 r--p 00057000 00:37 3870921259                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/util-linux/2.35-gcc-9.3.0/lib/libmount.so.1.1.0
+7fb4a7e4e000-7fb4a7e4f000 rw-p 00058000 00:37 3870921259                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/util-linux/2.35-gcc-9.3.0/lib/libmount.so.1.1.0
+7fb4a7e4f000-7fb4a7e50000 rw-p 00000000 00:00 0 
+7fb4a7e50000-7fb4a7e66000 r-xp 00000000 00:37 59485347                   /PRODCOM/Ubuntu20.04/Gcc-9.3.0/zlib/1.2.11-gcc-9.3.0/lib/libz.so.1.2.11
+7fb4a7e66000-7fb4a7e67000 ---p 00016000 00:37 59485347                   /PRODCOM/Ubuntu20.04/Gcc-9.3.0/zlib/1.2.11-gcc-9.3.0/lib/libz.so.1.2.11
+7fb4a7e67000-7fb4a7e68000 r--p 00016000 00:37 59485347                   /PRODCOM/Ubuntu20.04/Gcc-9.3.0/zlib/1.2.11-gcc-9.3.0/lib/libz.so.1.2.11
+7fb4a7e68000-7fb4a7e69000 rw-p 00017000 00:37 59485347                   /PRODCOM/Ubuntu20.04/Gcc-9.3.0/zlib/1.2.11-gcc-9.3.0/lib/libz.so.1.2.11
+7fb4a7e69000-7fb4a7ea0000 r-xp 00000000 00:37 2545752077                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libpng/1.6.37-gcc-9.3.0/lib/libpng16.so.16.37.0
+7fb4a7ea0000-7fb4a7ea1000 r--p 00036000 00:37 2545752077                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libpng/1.6.37-gcc-9.3.0/lib/libpng16.so.16.37.0
+7fb4a7ea1000-7fb4a7ea2000 rw-p 00037000 00:37 2545752077                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/libpng/1.6.37-gcc-9.3.0/lib/libpng16.so.16.37.0
+7fb4a7ea2000-7fb4a7f48000 r-xp 00000000 00:37 373709381                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/freetype/2.10.1-gcc-9.3.0/lib/libfreetype.so.6.17.1
+7fb4a7f48000-7fb4a7f4f000 r--p 000a5000 00:37 373709381                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/freetype/2.10.1-gcc-9.3.0/lib/libfreetype.so.6.17.1
+7fb4a7f4f000-7fb4a7f50000 rw-p 000ac000 00:37 373709381                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/freetype/2.10.1-gcc-9.3.0/lib/libfreetype.so.6.17.1
+7fb4a7f50000-7fb4a7ff6000 r-xp 00000000 00:37 3614017584                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/pixman/0.38.4-gcc-9.3.0/lib/libpixman-1.so.0.38.4
+7fb4a7ff6000-7fb4a7ff7000 ---p 000a6000 00:37 3614017584                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/pixman/0.38.4-gcc-9.3.0/lib/libpixman-1.so.0.38.4
+7fb4a7ff7000-7fb4a7fff000 r--p 000a6000 00:37 3614017584                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/pixman/0.38.4-gcc-9.3.0/lib/libpixman-1.so.0.38.4
+7fb4a7fff000-7fb4a8000000 rw-p 000ae000 00:37 3614017584                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/pixman/0.38.4-gcc-9.3.0/lib/libpixman-1.so.0.38.4
+7fb4a8000000-7fb4abff3000 rw-p 00000000 00:00 0 
+7fb4abff3000-7fb4ac000000 ---p 00000000 00:00 0 
+7fb4ac000000-7fb4ac3a2000 rw-p 00000000 00:00 0 
+7fb4ac3a2000-7fb4b0000000 ---p 00000000 00:00 0 
+7fb4b0003000-7fb4b0005000 r--p 00000000 09:06 53092083                   /usr/lib/x86_64-linux-gnu/libthai.so.0.3.1
+7fb4b0005000-7fb4b0009000 r-xp 00002000 09:06 53092083                   /usr/lib/x86_64-linux-gnu/libthai.so.0.3.1
+7fb4b0009000-7fb4b000c000 r--p 00006000 09:06 53092083                   /usr/lib/x86_64-linux-gnu/libthai.so.0.3.1
+7fb4b000c000-7fb4b000d000 r--p 00008000 09:06 53092083                   /usr/lib/x86_64-linux-gnu/libthai.so.0.3.1
+7fb4b000d000-7fb4b000e000 rw-p 00009000 09:06 53092083                   /usr/lib/x86_64-linux-gnu/libthai.so.0.3.1
+7fb4b000e000-7fb4b001a000 r-xp 00000000 00:37 664016907                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libxcb-render.so.0.0.0
+7fb4b001a000-7fb4b001b000 ---p 0000c000 00:37 664016907                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libxcb-render.so.0.0.0
+7fb4b001b000-7fb4b001c000 r--p 0000c000 00:37 664016907                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libxcb-render.so.0.0.0
+7fb4b001c000-7fb4b001d000 rw-p 0000d000 00:37 664016907                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libxcb-render.so.0.0.0
+7fb4b001d000-7fb4b0027000 r-xp 00000000 00:37 664021139                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXrandr.so.2.2.0
+7fb4b0027000-7fb4b0028000 r--p 00009000 00:37 664021139                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXrandr.so.2.2.0
+7fb4b0028000-7fb4b0029000 rw-p 0000a000 00:37 664021139                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXrandr.so.2.2.0
+7fb4b0029000-7fb4b006c000 r-xp 00000000 00:37 663981256                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/fontconfig/2.13.92-gcc-9.3.0/lib/libfontconfig.so.1.12.0
+7fb4b006c000-7fb4b006e000 r--p 00042000 00:37 663981256                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/fontconfig/2.13.92-gcc-9.3.0/lib/libfontconfig.so.1.12.0
+7fb4b006e000-7fb4b006f000 rw-p 00044000 00:37 663981256                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/fontconfig/2.13.92-gcc-9.3.0/lib/libfontconfig.so.1.12.0
+7fb4b006f000-7fb4b0194000 r-xp 00000000 00:37 3616033862                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libglib-2.0.so.0.6400.1
+7fb4b0194000-7fb4b0195000 ---p 00125000 00:37 3616033862                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libglib-2.0.so.0.6400.1
+7fb4b0195000-7fb4b0196000 r--p 00125000 00:37 3616033862                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libglib-2.0.so.0.6400.1
+7fb4b0196000-7fb4b0197000 rw-p 00126000 00:37 3616033862                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libglib-2.0.so.0.6400.1
+7fb4b0197000-7fb4b0198000 rw-p 00000000 00:00 0 
+7fb4b0198000-7fb4b01f2000 r-xp 00000000 00:37 3616033866                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgobject-2.0.so.0.6400.1
+7fb4b01f2000-7fb4b01f5000 r--p 00059000 00:37 3616033866                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgobject-2.0.so.0.6400.1
+7fb4b01f5000-7fb4b01f6000 rw-p 0005c000 00:37 3616033866                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgobject-2.0.so.0.6400.1
+7fb4b01f6000-7fb4b0205000 r--p 00000000 09:06 53091516                   /usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.4400.7
+7fb4b0205000-7fb4b022a000 r-xp 0000f000 09:06 53091516                   /usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.4400.7
+7fb4b022a000-7fb4b0241000 r--p 00034000 09:06 53091516                   /usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.4400.7
+7fb4b0241000-7fb4b0244000 r--p 0004a000 09:06 53091516                   /usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.4400.7
+7fb4b0244000-7fb4b0245000 rw-p 0004d000 09:06 53091516                   /usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.4400.7
+7fb4b0245000-7fb4b0404000 r-xp 00000000 00:37 3616033878                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgio-2.0.so.0.6400.1
+7fb4b0404000-7fb4b0405000 ---p 001bf000 00:37 3616033878                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgio-2.0.so.0.6400.1
+7fb4b0405000-7fb4b040c000 r--p 001bf000 00:37 3616033878                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgio-2.0.so.0.6400.1
+7fb4b040c000-7fb4b040f000 rw-p 001c6000 00:37 3616033878                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgio-2.0.so.0.6400.1
+7fb4b040f000-7fb4b0410000 rw-p 00000000 00:00 0 
+7fb4b0410000-7fb4b0416000 r--p 00000000 09:06 53090138                   /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.4000.0
+7fb4b0416000-7fb4b042d000 r-xp 00006000 09:06 53090138                   /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.4000.0
+7fb4b042d000-7fb4b0436000 r--p 0001d000 09:06 53090138                   /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.4000.0
+7fb4b0436000-7fb4b0437000 r--p 00025000 09:06 53090138                   /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.4000.0
+7fb4b0437000-7fb4b0438000 rw-p 00026000 09:06 53090138                   /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.4000.0
+7fb4b0438000-7fb4b053f000 r-xp 00000000 00:37 4140170293                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/cairo/1.16.0-gcc-9.3.0/lib/libcairo.so.2.11600.0
+7fb4b053f000-7fb4b0542000 r--p 00106000 00:37 4140170293                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/cairo/1.16.0-gcc-9.3.0/lib/libcairo.so.2.11600.0
+7fb4b0542000-7fb4b0544000 rw-p 00109000 00:37 4140170293                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/cairo/1.16.0-gcc-9.3.0/lib/libcairo.so.2.11600.0
+7fb4b0544000-7fb4b0545000 rw-p 00000000 00:00 0 
+7fb4b0545000-7fb4b0561000 r--p 00000000 09:06 53090135                   /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0.2400.32
+7fb4b0561000-7fb4b05bf000 r-xp 0001c000 09:06 53090135                   /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0.2400.32
+7fb4b05bf000-7fb4b05fa000 r--p 0007a000 09:06 53090135                   /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0.2400.32
+7fb4b05fa000-7fb4b05fe000 r--p 000b4000 09:06 53090135                   /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0.2400.32
+7fb4b05fe000-7fb4b0600000 rw-p 000b8000 09:06 53090135                   /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0.2400.32
+7fb4b0600000-7fb4b0664000 r--p 00000000 09:06 53090436                   /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0.2400.32
+7fb4b0664000-7fb4b08d4000 r-xp 00064000 09:06 53090436                   /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0.2400.32
+7fb4b08d4000-7fb4b0a4c000 r--p 002d4000 09:06 53090436                   /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0.2400.32
+7fb4b0a4c000-7fb4b0a53000 r--p 0044b000 09:06 53090436                   /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0.2400.32
+7fb4b0a53000-7fb4b0a57000 rw-p 00452000 09:06 53090436                   /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0.2400.32
+7fb4b0a57000-7fb4b0a5a000 rw-p 00000000 00:00 0 
+7fb4b0a5a000-7fb4b0acc000 r-xp 00000000 00:3e 107377980978               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-pi-gtk-3650.so
+7fb4b0acc000-7fb4b0bcb000 ---p 00072000 00:3e 107377980978               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-pi-gtk-3650.so
+7fb4b0bcb000-7fb4b0bce000 rw-p 00071000 00:3e 107377980978               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-pi-gtk-3650.so
+7fb4b0bce000-7fb4b0bd0000 rw-p 00000000 00:00 0 
+7fb4b0bd0000-7fb4b0c4e000 r-xp 00000000 00:3e 107377295964               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-gtk-3650.so
+7fb4b0c4e000-7fb4b0d4d000 ---p 0007e000 00:3e 107377295964               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-gtk-3650.so
+7fb4b0d4d000-7fb4b0d54000 rw-p 0007d000 00:3e 107377295964               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/110/1/.cp/libswt-gtk-3650.so
+7fb4b0d54000-7fb4b0d57000 rw-p 00000000 00:00 0 
+7fb4b0d57000-7fb4b0d5a000 ---p 00000000 00:00 0 
+7fb4b0d5a000-7fb4b1158000 rwxp 00000000 00:00 0 
+7fb4b1158000-7fb4b1368000 r-xp 00000000 00:37 3543793734                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflgraphics_common.so
+7fb4b1368000-7fb4b1468000 ---p 00210000 00:37 3543793734                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflgraphics_common.so
+7fb4b1468000-7fb4b1472000 rw-p 00210000 00:37 3543793734                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflgraphics_common.so
+7fb4b1472000-7fb4b1473000 rw-p 00000000 00:00 0 
+7fb4b295c000-7fb4b2a2b000 r-xp 00000000 00:37 3543793733                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflfftw3.so.3.1.2
+7fb4b2a2b000-7fb4b2b2a000 ---p 000cf000 00:37 3543793733                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflfftw3.so.3.1.2
+7fb4b2b2a000-7fb4b2b33000 rw-p 000ce000 00:37 3543793733                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflfftw3.so.3.1.2
+7fb4b2b33000-7fb4b2b45000 r-xp 00000000 00:37 3543793725                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libclmpi.so
+7fb4b2b45000-7fb4b2c45000 ---p 00012000 00:37 3543793725                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libclmpi.so
+7fb4b2c45000-7fb4b2c46000 rw-p 00012000 00:37 3543793725                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libclmpi.so
+7fb4b2c46000-7fb4b2da4000 r-xp 00000000 00:37 3543793702                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libifcoremt.so.5
+7fb4b2da4000-7fb4b2ea3000 ---p 0015e000 00:37 3543793702                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libifcoremt.so.5
+7fb4b2ea3000-7fb4b2eb4000 rw-p 0015d000 00:37 3543793702                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libifcoremt.so.5
+7fb4b2eb4000-7fb4b2ee5000 rw-p 00000000 00:00 0 
+7fb4b2ee5000-7fb4b2f16000 r-xp 00000000 00:37 3543793711                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libifport.so.5
+7fb4b2f16000-7fb4b3015000 ---p 00031000 00:37 3543793711                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libifport.so.5
+7fb4b3015000-7fb4b3018000 rw-p 00030000 00:37 3543793711                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libifport.so.5
+7fb4b3018000-7fb4b301e000 rw-p 00000000 00:00 0 
+7fb4b301e000-7fb4b3033000 r-xp 00000000 00:37 3543793737                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libsundials.so
+7fb4b3033000-7fb4b3133000 ---p 00015000 00:37 3543793737                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libsundials.so
+7fb4b3133000-7fb4b3134000 rw-p 00015000 00:37 3543793737                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libsundials.so
+7fb4b3134000-7fb4b3159000 r-xp 00000000 00:37 3543793742                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflblas.so
+7fb4b3159000-7fb4b3258000 ---p 00025000 00:37 3543793742                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflblas.so
+7fb4b3258000-7fb4b3259000 rw-p 00024000 00:37 3543793742                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflblas.so
+7fb4b3259000-7fb4b328a000 r-xp 00000000 00:37 3543793708                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflspecfun.so
+7fb4b328a000-7fb4b338a000 ---p 00031000 00:37 3543793708                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflspecfun.so
+7fb4b338a000-7fb4b338b000 rw-p 00031000 00:37 3543793708                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflspecfun.so
+7fb4b338b000-7fb4b338f000 r-xp 00000000 00:37 3543793722                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflcutil.so
+7fb4b338f000-7fb4b348f000 ---p 00004000 00:37 3543793722                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflcutil.so
+7fb4b348f000-7fb4b3491000 rw-p 00004000 00:37 3543793722                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflcutil.so
+7fb4b3491000-7fb4b34f8000 rw-p 00000000 00:00 0 
+7fb4b34f8000-7fb4b35c9000 r-xp 00000000 00:37 4343150611                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/ipv4/libflnutil.so
+7fb4b35c9000-7fb4b36c8000 ---p 000d1000 00:37 4343150611                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/ipv4/libflnutil.so
+7fb4b36c8000-7fb4b36cc000 rw-p 000d0000 00:37 4343150611                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/ipv4/libflnutil.so
+7fb4b36cc000-7fb4b36da000 rw-p 00000000 00:00 0 
+7fb4b36da000-7fb4b3810000 r-xp 00000000 00:37 3543793729                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflspooles.so
+7fb4b3810000-7fb4b3910000 ---p 00136000 00:37 3543793729                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflspooles.so
+7fb4b3910000-7fb4b3914000 rw-p 00136000 00:37 3543793729                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflspooles.so
+7fb4b3914000-7fb4b393a000 r-xp 00000000 00:37 3543793715                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflarpack.so
+7fb4b393a000-7fb4b3a39000 ---p 00026000 00:37 3543793715                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflarpack.so
+7fb4b3a39000-7fb4b3a3c000 rw-p 00025000 00:37 3543793715                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflarpack.so
+7fb4b3a3c000-7fb4b3ebf000 r-xp 00000000 00:37 3543793717                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflarray.so
+7fb4b3ebf000-7fb4b3fbe000 ---p 00483000 00:37 3543793717                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflarray.so
+7fb4b3fbe000-7fb4b4000000 rw-p 00482000 00:37 3543793717                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflarray.so
+7fb4b4000000-7fb4b4110000 rw-p 00000000 00:00 0 
+7fb4b4110000-7fb4b8000000 ---p 00000000 00:00 0 
+7fb4b8000000-7fb4b8112000 rw-p 00000000 00:00 0 
+7fb4b8112000-7fb4bc000000 ---p 00000000 00:00 0 
+7fb4bc004000-7fb4bc00b000 r--p 00000000 09:06 53091522                   /usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.4400.7
+7fb4bc00b000-7fb4bc016000 r-xp 00007000 09:06 53091522                   /usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.4400.7
+7fb4bc016000-7fb4bc01a000 r--p 00012000 09:06 53091522                   /usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.4400.7
+7fb4bc01a000-7fb4bc01b000 ---p 00016000 09:06 53091522                   /usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.4400.7
+7fb4bc01b000-7fb4bc01c000 r--p 00016000 09:06 53091522                   /usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.4400.7
+7fb4bc01c000-7fb4bc01d000 rw-p 00017000 09:06 53091522                   /usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.4400.7
+7fb4bc01d000-7fb4bc028000 r--p 00000000 09:06 53089301                   /usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.23510.1
+7fb4bc028000-7fb4bc037000 r-xp 0000b000 09:06 53089301                   /usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.23510.1
+7fb4bc037000-7fb4bc043000 r--p 0001a000 09:06 53089301                   /usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.23510.1
+7fb4bc043000-7fb4bc046000 r--p 00025000 09:06 53089301                   /usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.23510.1
+7fb4bc046000-7fb4bc047000 rw-p 00028000 09:06 53089301                   /usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.23510.1
+7fb4bc048000-7fb4bc049000 r--p 00000000 09:06 53087810                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libatk-bridge.so
+7fb4bc049000-7fb4bc04a000 r-xp 00001000 09:06 53087810                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libatk-bridge.so
+7fb4bc04a000-7fb4bc04b000 r--p 00002000 09:06 53087810                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libatk-bridge.so
+7fb4bc04b000-7fb4bc04c000 r--p 00002000 09:06 53087810                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libatk-bridge.so
+7fb4bc04c000-7fb4bc04d000 rw-p 00003000 09:06 53087810                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libatk-bridge.so
+7fb4bc04d000-7fb4bc050000 r--p 00000000 09:06 53090075                   /usr/lib/x86_64-linux-gnu/libgailutil.so.18.0.1
+7fb4bc050000-7fb4bc054000 r-xp 00003000 09:06 53090075                   /usr/lib/x86_64-linux-gnu/libgailutil.so.18.0.1
+7fb4bc054000-7fb4bc055000 r--p 00007000 09:06 53090075                   /usr/lib/x86_64-linux-gnu/libgailutil.so.18.0.1
+7fb4bc055000-7fb4bc056000 r--p 00007000 09:06 53090075                   /usr/lib/x86_64-linux-gnu/libgailutil.so.18.0.1
+7fb4bc056000-7fb4bc057000 rw-p 00008000 09:06 53090075                   /usr/lib/x86_64-linux-gnu/libgailutil.so.18.0.1
+7fb4bc057000-7fb4bc05b000 r--p 00000000 09:06 53089250                   /usr/lib/x86_64-linux-gnu/libappmenu-gtk2-parser.so.0.7
+7fb4bc05b000-7fb4bc065000 r-xp 00004000 09:06 53089250                   /usr/lib/x86_64-linux-gnu/libappmenu-gtk2-parser.so.0.7
+7fb4bc065000-7fb4bc069000 r--p 0000e000 09:06 53089250                   /usr/lib/x86_64-linux-gnu/libappmenu-gtk2-parser.so.0.7
+7fb4bc069000-7fb4bc06a000 ---p 00012000 09:06 53089250                   /usr/lib/x86_64-linux-gnu/libappmenu-gtk2-parser.so.0.7
+7fb4bc06a000-7fb4bc06b000 r--p 00012000 09:06 53089250                   /usr/lib/x86_64-linux-gnu/libappmenu-gtk2-parser.so.0.7
+7fb4bc06b000-7fb4bc06c000 rw-p 00013000 09:06 53089250                   /usr/lib/x86_64-linux-gnu/libappmenu-gtk2-parser.so.0.7
+7fb4bc06c000-7fb4bc06f000 r--p 00000000 09:06 53087809                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libappmenu-gtk-module.so
+7fb4bc06f000-7fb4bc072000 r-xp 00003000 09:06 53087809                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libappmenu-gtk-module.so
+7fb4bc072000-7fb4bc074000 r--p 00006000 09:06 53087809                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libappmenu-gtk-module.so
+7fb4bc074000-7fb4bc075000 r--p 00007000 09:06 53087809                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libappmenu-gtk-module.so
+7fb4bc075000-7fb4bc076000 rw-p 00008000 09:06 53087809                   /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libappmenu-gtk-module.so
+7fb4bc0a5000-7fb4bc0bc000 r--p 00000000 09:06 58474643                   /usr/share/icons/gnome/icon-theme.cache
+7fb4bc0bc000-7fb4bc1e8000 r-xp 00000000 00:37 3543793690                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflutil.so
+7fb4bc1e8000-7fb4bc2e8000 ---p 0012c000 00:37 3543793690                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflutil.so
+7fb4bc2e8000-7fb4bc2ee000 rw-p 0012c000 00:37 3543793690                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflutil.so
+7fb4bc2ee000-7fb4bc2ef000 rw-p 00000000 00:00 0 
+7fb4bc2ef000-7fb4bc304000 r-xp 00000000 00:37 3543793720                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflcluster.so
+7fb4bc304000-7fb4bc404000 ---p 00015000 00:37 3543793720                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflcluster.so
+7fb4bc404000-7fb4bc405000 rw-p 00015000 00:37 3543793720                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflcluster.so
+7fb4bc405000-7fb4bcbf3000 r-xp 00000000 00:37 3543793710                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflgeom.so
+7fb4bcbf3000-7fb4bccf2000 ---p 007ee000 00:37 3543793710                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflgeom.so
+7fb4bccf2000-7fb4bcd29000 rw-p 007ed000 00:37 3543793710                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflgeom.so
+7fb4bcd29000-7fb4bd2e9000 r-xp 00000000 00:37 3543793728                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflmesh.so
+7fb4bd2e9000-7fb4bd3e9000 ---p 005c0000 00:37 3543793728                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflmesh.so
+7fb4bd3e9000-7fb4bd3fa000 rw-p 005c0000 00:37 3543793728                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflmesh.so
+7fb4bd3fa000-7fb4be49b000 r-xp 00000000 00:37 3543793740                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflxmesh.so
+7fb4be49b000-7fb4be59b000 ---p 010a1000 00:37 3543793740                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflxmesh.so
+7fb4be59b000-7fb4be5de000 rw-p 010a1000 00:37 3543793740                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflxmesh.so
+7fb4be5de000-7fb4be967000 r-xp 00000000 00:37 3543793691                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflsolver.so
+7fb4be967000-7fb4bea66000 ---p 00389000 00:37 3543793691                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflsolver.so
+7fb4bea66000-7fb4bea78000 rw-p 00388000 00:37 3543793691                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflsolver.so
+7fb4bea78000-7fb4beac6000 r-xp 00000000 00:37 3543793736                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflpost.so
+7fb4beac6000-7fb4bebc6000 ---p 0004e000 00:37 3543793736                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflpost.so
+7fb4bebc6000-7fb4bebc8000 rw-p 0004e000 00:37 3543793736                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libflpost.so
+7fb4bebc8000-7fb4beee3000 r-xp 00000000 00:37 3543793698                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfljni.so
+7fb4beee3000-7fb4befe2000 ---p 0031b000 00:37 3543793698                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfljni.so
+7fb4befe2000-7fb4befea000 rw-p 0031a000 00:37 3543793698                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfljni.so
+7fb4befea000-7fb4bf024000 r-xp 00000000 00:37 3543793716                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libintlc.so.5
+7fb4bf024000-7fb4bf123000 ---p 0003a000 00:37 3543793716                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libintlc.so.5
+7fb4bf123000-7fb4bf126000 rw-p 00039000 00:37 3543793716                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libintlc.so.5
+7fb4bf126000-7fb4bf127000 rw-p 00000000 00:00 0 
+7fb4bf127000-7fb4bf306000 r-xp 00000000 00:37 1666113522                 /PRODCOM/Ubuntu20.04/Native/GCCcore/9.3.0-native/lib64/libstdc++.so.6.0.28
+7fb4bf306000-7fb4bf311000 r--p 001de000 00:37 1666113522                 /PRODCOM/Ubuntu20.04/Native/GCCcore/9.3.0-native/lib64/libstdc++.so.6.0.28
+7fb4bf311000-7fb4bf315000 rw-p 001e9000 00:37 1666113522                 /PRODCOM/Ubuntu20.04/Native/GCCcore/9.3.0-native/lib64/libstdc++.so.6.0.28
+7fb4bf315000-7fb4bf318000 rw-p 00000000 00:00 0 
+7fb4bf318000-7fb4bf39e000 r-xp 00000000 00:37 3543793697                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libiomp5.so
+7fb4bf39e000-7fb4bf49e000 ---p 00086000 00:37 3543793697                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libiomp5.so
+7fb4bf49e000-7fb4bf4a4000 rw-p 00086000 00:37 3543793697                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libiomp5.so
+7fb4bf4a4000-7fb4bf4ab000 rw-p 00000000 00:00 0 
+7fb4bf4ab000-7fb4bf6fa000 r-xp 00000000 00:37 3543793713                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libimf.so
+7fb4bf6fa000-7fb4bf7f9000 ---p 0024f000 00:37 3543793713                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libimf.so
+7fb4bf7f9000-7fb4bf7fe000 rw-p 0024e000 00:37 3543793713                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libimf.so
+7fb4bf7fe000-7fb4bf7ff000 ---p 00000000 00:00 0 
+7fb4bf7ff000-7fb4bf802000 ---p 00000000 00:00 0 
+7fb4bf802000-7fb4bfbff000 rwxp 00000000 00:00 0 
+7fb4bfbff000-7fb4bfc02000 ---p 00000000 00:00 0 
+7fb4bfc02000-7fb4c0000000 rwxp 00000000 00:00 0 
+7fb4c0000000-7fb4c09cf000 rw-p 00000000 00:00 0 
+7fb4c09cf000-7fb4c4000000 ---p 00000000 00:00 0 
+7fb4c4000000-7fb4c4a33000 rw-p 00000000 00:00 0 
+7fb4c4a33000-7fb4c8000000 ---p 00000000 00:00 0 
+7fb4c8000000-7fb4c8113000 rw-p 00000000 00:00 0 
+7fb4c8113000-7fb4cc000000 ---p 00000000 00:00 0 
+7fb4cc000000-7fb4ccdd1000 rw-p 00000000 00:00 0 
+7fb4ccdd1000-7fb4d0000000 ---p 00000000 00:00 0 
+7fb4d0000000-7fb4d05bb000 rw-p 00000000 00:00 0 
+7fb4d05bb000-7fb4d4000000 ---p 00000000 00:00 0 
+7fb4d4000000-7fb4d4116000 rw-p 00000000 00:00 0 
+7fb4d4116000-7fb4d8000000 ---p 00000000 00:00 0 
+7fb4d8000000-7fb4d8002000 r-xp 00000000 00:37 664016968                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libxcb-shm.so.0.0.0
+7fb4d8002000-7fb4d8003000 r--p 00001000 00:37 664016968                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libxcb-shm.so.0.0.0
+7fb4d8003000-7fb4d8004000 rw-p 00002000 00:37 664016968                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libxcb-shm.so.0.0.0
+7fb4d8004000-7fb4d8006000 r-xp 00000000 00:37 664021088                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXdamage.so.1.1.0
+7fb4d8006000-7fb4d8007000 r--p 00001000 00:37 664021088                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXdamage.so.1.1.0
+7fb4d8007000-7fb4d8008000 rw-p 00002000 00:37 664021088                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXdamage.so.1.1.0
+7fb4d8008000-7fb4d800d000 r--p 00000000 09:06 53091519                   /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.4400.7
+7fb4d800d000-7fb4d8015000 r-xp 00005000 09:06 53091519                   /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.4400.7
+7fb4d8015000-7fb4d8018000 r--p 0000d000 09:06 53091519                   /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.4400.7
+7fb4d8018000-7fb4d8019000 r--p 0000f000 09:06 53091519                   /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.4400.7
+7fb4d8019000-7fb4d801a000 rw-p 00010000 09:06 53091519                   /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.4400.7
+7fb4d801a000-7fb4d8037000 r--p 00000000 09:06 58336454                   /usr/share/icons/Adwaita/icon-theme.cache
+7fb4d8037000-7fb4d803e000 r--s 0007a000 00:37 6772902451                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.solid_1.0.0.jar
+7fb4d803e000-7fb4d8044000 r--s 00076000 00:37 6772902427                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.solver_1.0.0.jar
+7fb4d8044000-7fb4d8049000 r--s 00066000 00:37 6772846197                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.maxwell_1.0.0.jar
+7fb4d805a000-7fb4d8071000 r-xp 00000000 00:37 1666113499                 /PRODCOM/Ubuntu20.04/Native/GCCcore/9.3.0-native/lib64/libgcc_s.so.1
+7fb4d8071000-7fb4d8072000 r--p 00016000 00:37 1666113499                 /PRODCOM/Ubuntu20.04/Native/GCCcore/9.3.0-native/lib64/libgcc_s.so.1
+7fb4d8072000-7fb4d8073000 rw-p 00017000 00:37 1666113499                 /PRODCOM/Ubuntu20.04/Native/GCCcore/9.3.0-native/lib64/libgcc_s.so.1
+7fb4d8073000-7fb4d812f000 r-xp 00000000 00:37 3543793732                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libsvml.so
+7fb4d812f000-7fb4d822f000 ---p 000bc000 00:37 3543793732                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libsvml.so
+7fb4d822f000-7fb4d8230000 rw-p 000bc000 00:37 3543793732                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libsvml.so
+7fb4d8230000-7fb4d8231000 r-xp 00000000 00:37 3543793727                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfldynload.so
+7fb4d8231000-7fb4d8330000 ---p 00001000 00:37 3543793727                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfldynload.so
+7fb4d8330000-7fb4d8331000 rw-p 00000000 00:37 3543793727                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libfldynload.so
+7fb4d8340000-7fb4d8345000 r-xp 00000000 00:37 664021069                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXfixes.so.3.1.0
+7fb4d8345000-7fb4d8346000 r--p 00004000 00:37 664021069                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXfixes.so.3.1.0
+7fb4d8346000-7fb4d8347000 rw-p 00005000 00:37 664021069                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXfixes.so.3.1.0
+7fb4d8347000-7fb4d834a000 ---p 00000000 00:00 0 
+7fb4d834a000-7fb4d8748000 rwxp 00000000 00:00 0 
+7fb4d8748000-7fb4d87c6000 r-xp 00000000 00:37 1123325448                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libfontmanager.so
+7fb4d87c6000-7fb4d88c5000 ---p 0007e000 00:37 1123325448                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libfontmanager.so
+7fb4d88c5000-7fb4d88db000 rw-p 0007d000 00:37 1123325448                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libfontmanager.so
+7fb4d88db000-7fb4d88ec000 rw-p 00000000 00:00 0 
+7fb4d88ec000-7fb4d8a28000 r-xp 00000000 00:37 664018015                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libX11.so.6.3.0
+7fb4d8a28000-7fb4d8a2a000 r--p 0013b000 00:37 664018015                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libX11.so.6.3.0
+7fb4d8a2a000-7fb4d8a2f000 rw-p 0013d000 00:37 664018015                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libX11.so.6.3.0
+7fb4d8a2f000-7fb4d8ac1000 r-xp 00000000 00:37 1123325479                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libawt.so
+7fb4d8ac1000-7fb4d8bc0000 ---p 00092000 00:37 1123325479                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libawt.so
+7fb4d8bc0000-7fb4d8bd9000 rw-p 00091000 00:37 1123325479                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libawt.so
+7fb4d8bd9000-7fb4d8bfe000 rw-p 00000000 00:00 0 
+7fb4d8bfe000-7fb4d8c01000 ---p 00000000 00:00 0 
+7fb4d8c01000-7fb4d8fff000 rwxp 00000000 00:00 0 
+7fb4d8fff000-7fb4dc000000 rw-p 00000000 00:00 0 
+7fb4dc000000-7fb4df16f000 rw-p 00000000 00:00 0 
+7fb4df16f000-7fb4e0000000 ---p 00000000 00:00 0 
+7fb4e0000000-7fb4e020c000 rw-p 00000000 00:00 0 
+7fb4e020c000-7fb4e4000000 ---p 00000000 00:00 0 
+7fb4e4000000-7fb4e410f000 rw-p 00000000 00:00 0 
+7fb4e410f000-7fb4e8000000 ---p 00000000 00:00 0 
+7fb4e8000000-7fb4eb054000 rw-p 00000000 00:00 0 
+7fb4eb054000-7fb4ec000000 ---p 00000000 00:00 0 
+7fb4ec000000-7fb4ec021000 rw-p 00000000 00:00 0 
+7fb4ec021000-7fb4f0000000 ---p 00000000 00:00 0 
+7fb4f0000000-7fb4f010b000 rw-p 00000000 00:00 0 
+7fb4f010b000-7fb4f4000000 ---p 00000000 00:00 0 
+7fb4f4000000-7fb4f4133000 rw-p 00000000 00:00 0 
+7fb4f4133000-7fb4f8000000 ---p 00000000 00:00 0 
+7fb4f8000000-7fb4f823b000 rw-p 00000000 00:00 0 
+7fb4f823b000-7fb4fc000000 ---p 00000000 00:00 0 
+7fb4fc000000-7fb4fc225000 rw-p 00000000 00:00 0 
+7fb4fc225000-7fb500000000 ---p 00000000 00:00 0 
+7fb500000000-7fb500153000 rw-p 00000000 00:00 0 
+7fb500153000-7fb504000000 ---p 00000000 00:00 0 
+7fb504000000-7fb504152000 rw-p 00000000 00:00 0 
+7fb504152000-7fb508000000 ---p 00000000 00:00 0 
+7fb508001000-7fb508043000 r-xp 00000000 00:37 1396820993                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/xawt/libmawt.so
+7fb508043000-7fb508142000 ---p 00042000 00:37 1396820993                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/xawt/libmawt.so
+7fb508142000-7fb50814d000 rw-p 00041000 00:37 1396820993                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/xawt/libmawt.so
+7fb50814d000-7fb50814f000 rw-p 00000000 00:00 0 
+7fb50814f000-7fb50815a000 r-xp 00000000 00:37 3543793712                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libcssystemutil.so
+7fb50815a000-7fb508259000 ---p 0000b000 00:37 3543793712                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libcssystemutil.so
+7fb508259000-7fb50825b000 rw-p 0000a000 00:37 3543793712                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/lib/glnxa64/libcssystemutil.so
+7fb50825b000-7fb508262000 r-xp 00000000 00:37 4140170297                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/cairo/1.16.0-gcc-9.3.0/lib/libcairo-gobject.so.2.11600.0
+7fb508262000-7fb508264000 r--p 00006000 00:37 4140170297                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/cairo/1.16.0-gcc-9.3.0/lib/libcairo-gobject.so.2.11600.0
+7fb508264000-7fb508265000 rw-p 00008000 00:37 4140170297                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/cairo/1.16.0-gcc-9.3.0/lib/libcairo-gobject.so.2.11600.0
+7fb508265000-7fb508274000 r--p 00000000 09:06 58474672                   /usr/share/icons/hicolor/icon-theme.cache
+7fb508274000-7fb50828f000 r--p 00000000 09:06 58474612                   /usr/share/icons/Yaru/icon-theme.cache
+7fb50828f000-7fb508299000 r-xp 00000000 00:37 664021078                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXrender.so.1.3.0
+7fb508299000-7fb50829a000 r--p 00009000 00:37 664021078                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXrender.so.1.3.0
+7fb50829a000-7fb50829b000 rw-p 0000a000 00:37 664021078                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXrender.so.1.3.0
+7fb50829b000-7fb5082a5000 r-xp 00000000 00:37 664021083                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXcursor.so.1.0.2
+7fb5082a5000-7fb5082a6000 r--p 00009000 00:37 664021083                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXcursor.so.1.0.2
+7fb5082a6000-7fb5082a7000 rw-p 0000a000 00:37 664021083                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXcursor.so.1.0.2
+7fb5082a7000-7fb5082ac000 r-xp 00000000 00:37 664015973                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXdmcp.so.6.0.0
+7fb5082ac000-7fb5082ad000 r--p 00004000 00:37 664015973                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXdmcp.so.6.0.0
+7fb5082ad000-7fb5082ae000 rw-p 00005000 00:37 664015973                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXdmcp.so.6.0.0
+7fb5082ae000-7fb5082b0000 r-xp 00000000 00:37 664015969                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXau.so.6.0.0
+7fb5082b0000-7fb5082b1000 ---p 00002000 00:37 664015969                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXau.so.6.0.0
+7fb5082b1000-7fb5082b2000 r--p 00002000 00:37 664015969                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXau.so.6.0.0
+7fb5082b2000-7fb5082b3000 rw-p 00003000 00:37 664015969                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXau.so.6.0.0
+7fb5082b3000-7fb5082d9000 r-xp 00000000 00:37 664016475                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libxcb.so.1.1.0
+7fb5082d9000-7fb5082da000 r--p 00025000 00:37 664016475                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libxcb.so.1.1.0
+7fb5082da000-7fb5082db000 rw-p 00026000 00:37 664016475                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libxcb.so.1.1.0
+7fb5082db000-7fb5082eb000 r-xp 00000000 00:37 664021129                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXi.so.6.1.0
+7fb5082eb000-7fb5082ec000 r--p 0000f000 00:37 664021129                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXi.so.6.1.0
+7fb5082ec000-7fb5082ed000 rw-p 00010000 00:37 664021129                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXi.so.6.1.0
+7fb5082f9000-7fb5082fe000 rw-s 1056d9000 00:0e 14439                     anon_inode:i915.gem
+7fb5082fe000-7fb508315000 r--s 001c8000 00:37 6772902514                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.resources_1.0.0.jar
+7fb50831a000-7fb50832b000 r--p 00000000 09:06 56098891                   /usr/share/fonts/truetype/ttf-bitstream-vera/Vera.ttf
+7fb508330000-7fb508332000 r-xp 00000000 00:37 664021073                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXcomposite.so.1.0.0
+7fb508332000-7fb508333000 r--p 00001000 00:37 664021073                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXcomposite.so.1.0.0
+7fb508333000-7fb508334000 rw-p 00002000 00:37 664021073                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXcomposite.so.1.0.0
+7fb508334000-7fb508344000 r--s 0014e000 00:37 6772902479                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.transport_1.0.0.jar
+7fb508346000-7fb50834f000 r--s 0008b000 00:37 6772846191                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.post_1.0.0.jar
+7fb508372000-7fb508377000 r-xp 00000000 00:37 664021149                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXtst.so.6.1.0
+7fb508377000-7fb508378000 r--p 00004000 00:37 664021149                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXtst.so.6.1.0
+7fb508378000-7fb508379000 rw-p 00005000 00:37 664021149                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXtst.so.6.1.0
+7fb508379000-7fb50838b000 r-xp 00000000 00:37 664018596                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXext.so.6.4.0
+7fb50838b000-7fb50838c000 r--p 00011000 00:37 664018596                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXext.so.6.4.0
+7fb50838c000-7fb50838d000 rw-p 00012000 00:37 664018596                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXext.so.6.4.0
+7fb50839b000-7fb50839e000 r--s 00016000 00:37 6772902539                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.design_1.0.0.jar
+7fb50839e000-7fb50839f000 r--p 00000000 09:06 53086791                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+7fb50839f000-7fb5083a0000 r-xp 00001000 09:06 53086791                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+7fb5083a0000-7fb5083a1000 r--p 00002000 09:06 53086791                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+7fb5083a1000-7fb5083a2000 r--p 00002000 09:06 53086791                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+7fb5083a2000-7fb5083a3000 rw-p 00003000 09:06 53086791                   /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+7fb5083ad000-7fb5083b1000 rw-s 1056d5000 00:0e 14439                     anon_inode:i915.gem
+7fb5083ba000-7fb5083d2000 rw-s 1057d6000 00:0e 14439                     anon_inode:i915.gem
+7fb5083d4000-7fb5083d8000 rw-s 1056d1000 00:0e 14439                     anon_inode:i915.gem
+7fb5083d8000-7fb5083dc000 rw-s 1058ba000 00:0e 14439                     anon_inode:i915.gem
+7fb5083ed000-7fb5083f3000 r--s 00075000 00:37 6772902529                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.geommesh_1.0.0.jar
+7fb5083f3000-7fb5083f4000 rw-s 00000000 00:01 2495                       /memfd:xshmfence (deleted)
+7fb5083f4000-7fb5083f5000 rw-s 100b05000 00:0e 14439                     anon_inode:i915.gem
+7fb5083f5000-7fb5083f6000 rw-s 105913000 00:0e 14439                     anon_inode:i915.gem
+7fb508406000-7fb508407000 r--p 00000000 09:06 53091283                   /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7fb508407000-7fb508409000 r-xp 00001000 09:06 53091283                   /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7fb508409000-7fb50840a000 r--p 00003000 09:06 53091283                   /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7fb50840a000-7fb50840b000 r--p 00003000 09:06 53091283                   /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7fb50840b000-7fb50840c000 rw-p 00004000 09:06 53091283                   /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7fb508415000-7fb508436000 r--s 00607000 00:37 6772902534                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.ibm.icu_4.2.1.v20100412.jar
+7fb50843c000-7fb50843f000 rw-s 00000000 00:01 98348                      /SYSV00000000 (deleted)
+7fb508449000-7fb50844a000 r-xp 00000000 00:37 664018019                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libX11-xcb.so.1.0.0
+7fb50844a000-7fb50844b000 r--p 00000000 00:37 664018019                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libX11-xcb.so.1.0.0
+7fb50844b000-7fb50844c000 rw-p 00001000 00:37 664018019                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libX11-xcb.so.1.0.0
+7fb50844c000-7fb50844e000 r-xp 00000000 00:37 664021134                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXinerama.so.1.0.0
+7fb50844e000-7fb50844f000 r--p 00001000 00:37 664021134                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXinerama.so.1.0.0
+7fb50844f000-7fb508450000 rw-p 00002000 00:37 664021134                  /PRODCOM/Ubuntu20.04/Gcc-9.3.0/X11/20200222-gcc-9.3.0/lib/libXinerama.so.1.0.0
+7fb508450000-7fb508453000 r-xp 00000000 00:37 3616033874                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgmodule-2.0.so.0.6400.1
+7fb508453000-7fb508454000 r--p 00002000 00:37 3616033874                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgmodule-2.0.so.0.6400.1
+7fb508454000-7fb508455000 rw-p 00003000 00:37 3616033874                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgmodule-2.0.so.0.6400.1
+7fb508455000-7fb508456000 r-xp 00000000 00:37 3616033870                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgthread-2.0.so.0.6400.1
+7fb508456000-7fb508457000 r--p 00000000 00:37 3616033870                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgthread-2.0.so.0.6400.1
+7fb508457000-7fb508458000 rw-p 00001000 00:37 3616033870                 /PRODCOM/Ubuntu20.04/Gcc-9.3.0/GLib/2.64.1-gcc-9.3.0/lib/libgthread-2.0.so.0.6400.1
+7fb508470000-7fb508490000 rw-s 105d13000 00:0e 14439                     anon_inode:i915.gem
+7fb508490000-7fb5084a4000 r--s 0023e000 00:37 6772902478                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.swt.gtk.linux.x86_64_3.6.0.v3650b.jar
+7fb5084a4000-7fb5084b3000 r--s 000ce000 00:37 6772902430                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.guimph_1.0.0.jar
+7fb5084b3000-7fb5084b6000 ---p 00000000 00:00 0 
+7fb5084b6000-7fb5088b4000 rwxp 00000000 00:00 0 
+7fb5088b4000-7fb5088b7000 ---p 00000000 00:00 0 
+7fb5088b7000-7fb508cb5000 rwxp 00000000 00:00 0 
+7fb508cb5000-7fb508cb8000 ---p 00000000 00:00 0 
+7fb508cb8000-7fb5090b6000 rwxp 00000000 00:00 0 
+7fb5090e6000-7fb5090fa000 r--s 000f1000 00:37 6772846183                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.jface_3.6.0.I20100601-0800.jar
+7fb50911a000-7fb50913a000 rw-s 105507000 00:0e 14439                     anon_inode:i915.gem
+7fb50914a000-7fb50916a000 rw-s 105296000 00:0e 14439                     anon_inode:i915.gem
+7fb50916a000-7fb50916c000 r--s 00010000 00:37 6772902472                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.core.runtime_3.6.0.v20100505.jar
+7fb50916c000-7fb50916e000 r--s 0004a000 00:3e 25816404525                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/314/1/bundlefile
+7fb50916e000-7fb509170000 r--s 00015000 00:3e 8667576349                 /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/312/1/bundlefile
+7fb50917c000-7fb50917e000 r--s 00262000 00:3e 56304654                   /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/311/1/bundlefile
+7fb50917e000-7fb509180000 r--s 00008000 00:3e 128933771798               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/310/1/bundlefile
+7fb509180000-7fb5091a0000 rw-s 10451a000 00:0e 14439                     anon_inode:i915.gem
+7fb5091ab000-7fb5091bb000 rw-s 106879000 00:0e 14439                     anon_inode:i915.gem
+7fb5091c0000-7fb5091cb000 r--s 0006e000 00:37 6772902448                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/truezip-6.jar
+7fb5091cd000-7fb5091d7000 r--s 0006e000 00:37 6772902476                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.help.ui_3.5.0.v20100517.jar
+7fb5091d7000-7fb5091f7000 rw-s 1055e1000 00:0e 14439                     anon_inode:i915.gem
+7fb5091f7000-7fb509219000 r--s 001c7000 00:37 6772902463                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.model_1.0.0.jar
+7fb509219000-7fb509229000 rw-s 105806000 00:0e 14439                     anon_inode:i915.gem
+7fb509229000-7fb509239000 rw-s 106f29000 00:0e 14439                     anon_inode:i915.gem
+7fb509239000-7fb50923f000 r--s 0004f000 00:37 6772902428                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.util_1.0.0.jar
+7fb509248000-7fb50924d000 rw-s 104569000 00:0e 14439                     anon_inode:i915.gem
+7fb5093e1000-7fb5093e2000 r--s 000c6000 00:3e 17187972130                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/313/1/bundlefile
+7fb5093e2000-7fb5093e3000 r--p 00000000 00:00 0 
+7fb5093e3000-7fb5093e5000 r--s 0009e000 00:3e 120281332767               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/309/1/bundlefile
+7fb5093e5000-7fb5093e6000 r--s 00000000 00:3e 111717640743               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/308/1/bundlefile
+7fb5093e6000-7fb5093e7000 r--s 00164000 00:3e 103162208811               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/307/1/bundlefile
+7fb5093e7000-7fb5093e9000 r--s 001e2000 00:3e 94571764808                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/306/1/bundlefile
+7fb5093e9000-7fb5093ea000 r--s 00000000 00:3e 85909185583                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/305/1/bundlefile
+7fb5093ea000-7fb5093eb000 r--s 000bf000 00:3e 77319181853                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/304/1/bundlefile
+7fb5093eb000-7fb5093ed000 r--s 0008a000 00:3e 68726724609                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/303/1/bundlefile
+7fb5093ed000-7fb5093ee000 r--s 00008000 00:3e 60156036655                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/302/1/bundlefile
+7fb5093ee000-7fb5093fc000 r--s 01026000 00:3e 128931227136               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/278/1/bundlefile
+7fb509400000-7fb509404000 rw-s 10000a000 00:0e 14439                     anon_inode:i915.gem
+7fb509404000-7fb509408000 r--s 00032000 00:37 6772902438                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.emf.ecore.xmi_2.5.0.v200906151043.jar
+7fb509408000-7fb50940c000 rw-s 100b18000 00:0e 14439                     anon_inode:i915.gem
+7fb50940c000-7fb50940d000 r--s 0001e000 00:3e 51570265635                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/301/1/bundlefile
+7fb50940d000-7fb50940f000 r--s 000a4000 00:3e 42962458615                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/300/1/bundlefile
+7fb50940f000-7fb509410000 r--s 000cd000 00:3e 34416654850                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/299/1/bundlefile
+7fb509412000-7fb509418000 r--s 0002b000 00:37 6772902471                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.widgets.swt_1.0.0.jar
+7fb509418000-7fb50941d000 rw-s 1058ef000 00:0e 14439                     anon_inode:i915.gem
+7fb50941d000-7fb50941e000 r--s 00047000 00:3e 25816386609                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/298/1/bundlefile
+7fb50941e000-7fb509420000 r--s 00139000 00:3e 17187815442                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/297/1/bundlefile
+7fb509420000-7fb509421000 r--s 00000000 00:3e 8667576335                 /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/296/1/bundlefile
+7fb509421000-7fb509423000 r--s 000a4000 00:3e 48645179                   /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/295/1/bundlefile
+7fb509423000-7fb509425000 r--s 00056000 00:3e 128933771806               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/294/1/bundlefile
+7fb509425000-7fb509427000 r--s 00090000 00:3e 111695448089               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/292/1/bundlefile
+7fb509427000-7fb509429000 r--s 00022000 00:3e 103162208782               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/291/1/bundlefile
+7fb50942c000-7fb509431000 r--s 00021000 00:37 6772902506                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.ui_3.6.0.I20100603-1100.jar
+7fb509431000-7fb509435000 rw-s 1002b9000 00:0e 14439                     anon_inode:i915.gem
+7fb509435000-7fb50943a000 rw-s 105230000 00:0e 14439                     anon_inode:i915.gem
+7fb50943a000-7fb509443000 r--s 00070000 00:37 6772846200                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.model.edit_1.0.0.jar
+7fb509443000-7fb509444000 r--s 00000000 00:3e 120280749716               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/293/1/bundlefile
+7fb509444000-7fb509446000 r--s 0011a000 00:3e 94571762712                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/290/1/bundlefile
+7fb509446000-7fb509448000 r--s 00216000 00:3e 85903839834                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/289/1/bundlefile
+7fb509448000-7fb509449000 r--s 0004d000 00:3e 77319181845                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/288/1/bundlefile
+7fb50944c000-7fb50944e000 r--s 00039000 00:3e 68726723627                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/287/1/bundlefile
+7fb50944e000-7fb509450000 r--s 00033000 00:3e 60156035638                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/286/1/bundlefile
+7fb509450000-7fb509452000 r--s 00070000 00:3e 51570003479                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/285/1/bundlefile
+7fb509452000-7fb509453000 r--s 0012d000 00:3e 51566636069                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/253/1/bundlefile
+7fb509453000-7fb509454000 r--s 00139000 00:3e 42949742389                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/252/1/bundlefile
+7fb509454000-7fb509455000 r--s 00085000 00:3e 17187168810                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/233/1/bundlefile
+7fb509455000-7fb509456000 ---p 00000000 00:00 0 
+7fb509456000-7fb509466000 rwxp 00000000 00:00 0 
+7fb509466000-7fb50946a000 r--s 00016000 00:37 6772902481                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.nativejni_1.0.0.jar
+7fb50946a000-7fb50946c000 r--s 0005c000 00:3e 34415395346                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/251/1/bundlefile
+7fb50946c000-7fb50946e000 r--s 000bb000 00:3e 25810845342                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/250/1/bundlefile
+7fb50946e000-7fb50946f000 r--s 0002c000 00:3e 42957938225                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/284/1/bundlefile
+7fb50946f000-7fb509471000 r--s 00082000 00:3e 34416301571                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/283/1/bundlefile
+7fb509471000-7fb509473000 r--s 0009c000 00:3e 60138224139                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/254/1/bundlefile
+7fb509473000-7fb509475000 r--s 0007e000 00:3e 17187168821                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/249/1/bundlefile
+7fb509475000-7fb509477000 r--s 00114000 00:3e 8641595451                 /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/248/1/bundlefile
+7fb509477000-7fb509478000 r--s 00036000 00:3e 34195533                   /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/247/1/bundlefile
+7fb509478000-7fb50947a000 r--s 00031000 00:3e 120280486935               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/245/1/bundlefile
+7fb50947a000-7fb50947b000 r--s 000c0000 00:3e 111692768848               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/244/1/bundlefile
+7fb50947b000-7fb50947c000 r--s 00072000 00:3e 103144153727               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/243/1/bundlefile
+7fb50947c000-7fb50947d000 r--s 00102000 00:3e 94541756956                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/242/1/bundlefile
+7fb50947d000-7fb50947e000 r--s 001ee000 00:3e 85903839763                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/241/1/bundlefile
+7fb50947e000-7fb50947f000 r--s 000aa000 00:3e 77401401910                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/240/1/bundlefile
+7fb50947f000-7fb509481000 r--s 0005d000 00:3e 68726501419                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/239/1/bundlefile
+7fb509481000-7fb509483000 r--s 000f6000 00:3e 60138219580                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/238/1/bundlefile
+7fb509483000-7fb509485000 r--s 00072000 00:3e 51565734460                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/237/1/bundlefile
+7fb509485000-7fb509487000 r--s 00093000 00:3e 42949742259                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/236/1/bundlefile
+7fb509487000-7fb509489000 r--s 00069000 00:3e 25816385073                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/282/1/bundlefile
+7fb509489000-7fb50948b000 r--s 00026000 00:3e 17187230231                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/281/1/bundlefile
+7fb50948b000-7fb50948c000 r--s 00089000 00:3e 8649543776                 /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/280/1/bundlefile
+7fb50948c000-7fb50948e000 r--s 00036000 00:3e 120280686110               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/277/1/bundlefile
+7fb50948e000-7fb50948f000 r--s 0007b000 00:3e 111695448076               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/276/1/bundlefile
+7fb50948f000-7fb509490000 r--s 0000d000 00:3e 103162114104               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/275/1/bundlefile
+7fb509490000-7fb509492000 r--s 00099000 00:3e 85903839820                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/273/1/bundlefile
+7fb509492000-7fb509493000 r--s 0007c000 00:3e 68726700086                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/271/1/bundlefile
+7fb509493000-7fb509494000 r--s 000a6000 00:3e 60156035627                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/270/1/bundlefile
+7fb509494000-7fb509495000 r--s 00086000 00:3e 51569188387                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/269/1/bundlefile
+7fb509495000-7fb509496000 r--s 00000000 00:3e 42953764409                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/268/1/bundlefile
+7fb509496000-7fb509497000 r--s 00051000 00:3e 34416049672                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/267/1/bundlefile
+7fb509497000-7fb509498000 r--s 00118000 00:3e 25816373808                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/266/1/bundlefile
+7fb509498000-7fb50949a000 r--s 00043000 00:3e 17187169326                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/265/1/bundlefile
+7fb50949a000-7fb50949b000 r--s 000ac000 00:3e 8649150516                 /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/264/1/bundlefile
+7fb50949b000-7fb50949c000 r--s 00039000 00:3e 34341917                   /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/263/1/bundlefile
+7fb50949c000-7fb50949e000 r--s 0005a000 00:3e 128931216391               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/262/1/bundlefile
+7fb50949e000-7fb50949f000 r--s 00078000 00:3e 120280549977               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/261/1/bundlefile
+7fb50949f000-7fb5094a1000 r--s 00172000 00:3e 111693785135               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/260/1/bundlefile
+7fb5094a1000-7fb5094a3000 r--s 0007c000 00:3e 103150383126               /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/259/1/bundlefile
+7fb5094a3000-7fb5094a4000 r--s 00175000 00:3e 94544747025                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/258/1/bundlefile
+7fb5094a4000-7fb5094a6000 r--s 00008000 00:3e 85903839774                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/257/1/bundlefile
+7fb5094a6000-7fb5094a8000 r--s 0011f000 00:3e 77317037592                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/256/1/bundlefile
+7fb5094a8000-7fb5094a9000 r--s 0010a000 00:3e 68726514287                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/255/1/bundlefile
+7fb5094a9000-7fb5094ab000 r--s 000e7000 00:3e 34381578274                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/235/1/bundlefile
+7fb5094ab000-7fb5094ad000 r--s 00056000 00:3e 25805181489                /home/pdavid/.comsol/v41/configuration/comsol/org.eclipse.osgi/bundles/234/1/bundlefile
+7fb5094ad000-7fb5094b2000 r--s 00037000 00:37 6772902473                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.nativemph_1.0.0.jar
+7fb5094b2000-7fb5094b7000 rw-s 105bdb000 00:0e 14439                     anon_inode:i915.gem
+7fb5094b7000-7fb5094be000 r-xp 00000000 00:37 1123325446                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libnio.so
+7fb5094be000-7fb5095bd000 ---p 00007000 00:37 1123325446                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libnio.so
+7fb5095bd000-7fb5095bf000 rw-p 00006000 00:37 1123325446                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libnio.so
+7fb5095bf000-7fb5095d2000 r-xp 00000000 00:37 1123325477                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libnet.so
+7fb5095d2000-7fb5096d3000 ---p 00013000 00:37 1123325477                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libnet.so
+7fb5096d3000-7fb5096d6000 rw-p 00014000 00:37 1123325477                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libnet.so
+7fb5096d6000-7fb5096d7000 ---p 00000000 00:00 0 
+7fb5096d7000-7fb5097d7000 rwxp 00000000 00:00 0 
+7fb5097d7000-7fb5097da000 ---p 00000000 00:00 0 
+7fb5097da000-7fb509bd8000 rwxp 00000000 00:00 0 
+7fb509bd8000-7fb509bd9000 ---p 00000000 00:00 0 
+7fb509bd9000-7fb509bdc000 ---p 00000000 00:00 0 
+7fb509bdc000-7fb509cd9000 rwxp 00000000 00:00 0 
+7fb509cd9000-7fb509cda000 ---p 00000000 00:00 0 
+7fb509cda000-7fb509cdd000 ---p 00000000 00:00 0 
+7fb509cdd000-7fb509dda000 rwxp 00000000 00:00 0 
+7fb509dda000-7fb509ddd000 ---p 00000000 00:00 0 
+7fb509ddd000-7fb50a1db000 rwxp 00000000 00:00 0 
+7fb50a1db000-7fb50a1de000 ---p 00000000 00:00 0 
+7fb50a1de000-7fb50a5dc000 rwxp 00000000 00:00 0 
+7fb50a5dc000-7fb50a5df000 ---p 00000000 00:00 0 
+7fb50a5df000-7fb50a9dd000 rwxp 00000000 00:00 0 
+7fb50a9dd000-7fb50a9de000 ---p 00000000 00:00 0 
+7fb50a9de000-7fb50aade000 rwxp 00000000 00:00 0 
+7fb50aade000-7fb50b016000 rw-p 00000000 00:00 0 
+7fb50b016000-7fb50b1ad000 r--s 02abf000 00:37 4343133734                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/rt.jar
+7fb50b1ad000-7fb50b1d5000 rw-p 00000000 00:00 0 
+7fb50b1d5000-7fb50b1d6000 ---p 00000000 00:00 0 
+7fb50b1d6000-7fb50b2d6000 rwxp 00000000 00:00 0 
+7fb50b2d6000-7fb50b2d7000 ---p 00000000 00:00 0 
+7fb50b2d7000-7fb50b3d7000 rwxp 00000000 00:00 0 
+7fb50b3d7000-7fb50b3d8000 ---p 00000000 00:00 0 
+7fb50b3d8000-7fb50b4d8000 rwxp 00000000 00:00 0 
+7fb50b4d8000-7fb50b4d9000 ---p 00000000 00:00 0 
+7fb50b4d9000-7fb50b5d9000 rwxp 00000000 00:00 0 
+7fb50b5d9000-7fb50b5fe000 rw-p 00000000 00:00 0 
+7fb50b5fe000-7fb50b614000 ---p 00000000 00:00 0 
+7fb50b614000-7fb50b659000 rw-p 00000000 00:00 0 
+7fb50b659000-7fb50b68e000 rw-p 00000000 00:00 0 
+7fb50b68e000-7fb50b7af000 rw-p 00000000 00:00 0 
+7fb50b7af000-7fb50b7d4000 rw-p 00000000 00:00 0 
+7fb50b7d4000-7fb50b7ea000 ---p 00000000 00:00 0 
+7fb50b7ea000-7fb50b82f000 rw-p 00000000 00:00 0 
+7fb50b82f000-7fb50b864000 rw-p 00000000 00:00 0 
+7fb50b864000-7fb50b984000 rw-p 00000000 00:00 0 
+7fb50b984000-7fb50b9bf000 rw-p 00000000 00:00 0 
+7fb50b9bf000-7fb50b9f0000 ---p 00000000 00:00 0 
+7fb50b9f0000-7fb50ba2f000 rw-p 00000000 00:00 0 
+7fb50ba2f000-7fb510330000 rw-p 00000000 00:00 0 
+7fb510330000-7fb512fb0000 ---p 00000000 00:00 0 
+7fb512fb0000-7fb51ba30000 rw-p 00000000 00:00 0 
+7fb51ba30000-7fb5222f0000 rw-p 00000000 00:00 0 
+7fb5222f0000-7fb5464e0000 rw-p 00000000 00:00 0 
+7fb5464e0000-7fb54d8f0000 rw-p 00000000 00:00 0 
+7fb54d8f0000-7fb553a50000 ---p 00000000 00:00 0 
+7fb553a50000-7fb55ba30000 rw-p 00000000 00:00 0 
+7fb55ba30000-7fb55ba31000 rwxp 00000000 00:00 0 
+7fb55ba31000-7fb55ba32000 rw-s 10562b000 00:0e 14439                     anon_inode:i915.gem
+7fb55ba33000-7fb55ba35000 r--s 00016000 00:37 6772902437                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.guipost_1.0.0.jar
+7fb55ba35000-7fb55ba76000 rw-p 00000000 00:00 0 
+7fb55ba76000-7fb55baf5000 rw-p 00000000 00:00 0 
+7fb55baf5000-7fb55cb05000 rwxp 00000000 00:00 0 
+7fb55cb05000-7fb55eaf5000 rw-p 00000000 00:00 0 
+7fb55eaf5000-7fb55eb03000 r-xp 00000000 00:37 1123325456                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libzip.so
+7fb55eb03000-7fb55ec05000 ---p 0000e000 00:37 1123325456                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libzip.so
+7fb55ec05000-7fb55ec08000 rw-p 00010000 00:37 1123325456                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libzip.so
+7fb55ec08000-7fb55ec09000 rw-p 00000000 00:00 0 
+7fb55ec09000-7fb55ec0b000 r--p 00000000 09:06 53084819                   /usr/lib/x86_64-linux-gnu/libnss_sss.so.2
+7fb55ec0b000-7fb55ec11000 r-xp 00002000 09:06 53084819                   /usr/lib/x86_64-linux-gnu/libnss_sss.so.2
+7fb55ec11000-7fb55ec13000 r--p 00008000 09:06 53084819                   /usr/lib/x86_64-linux-gnu/libnss_sss.so.2
+7fb55ec13000-7fb55ec14000 r--p 00009000 09:06 53084819                   /usr/lib/x86_64-linux-gnu/libnss_sss.so.2
+7fb55ec14000-7fb55ec15000 rw-p 0000a000 09:06 53084819                   /usr/lib/x86_64-linux-gnu/libnss_sss.so.2
+7fb55ec16000-7fb55ec1a000 rw-s 105477000 00:0e 14439                     anon_inode:i915.gem
+7fb55ec1a000-7fb55ec1b000 rw-s 00000000 00:01 16613                      /memfd:xshmfence (deleted)
+7fb55ec1b000-7fb55ec1c000 rw-s 00000000 00:01 17485                      /memfd:xshmfence (deleted)
+7fb55ec1e000-7fb55ec1f000 rw-s 100bcd000 00:0e 14439                     anon_inode:i915.gem
+7fb55ec1f000-7fb55ec21000 r--s 0000d000 00:37 6772902450                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.graphics_1.0.0.jar
+7fb55ec21000-7fb55ec22000 r--s 00002000 00:37 6772902416                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/com.comsol.modelresources_1.0.0.jar
+7fb55ec23000-7fb55ec28000 r--s 00044000 00:37 6772902421                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.ui.forms_3.5.0.v20100427.jar
+7fb55ec28000-7fb55ec29000 r--s 00004000 00:37 6772902496                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.swt_3.6.0.v3650b.jar
+7fb55ec29000-7fb55ec3a000 r--s 00108000 00:37 6772902439                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.osgi_3.6.0.v20100517.jar
+7fb55ec3a000-7fb55ec3c000 r--s 0000a000 00:37 6772902454                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.equinox.launcher_1.1.0.v20100507.jar
+7fb55ec3c000-7fb55ec44000 rw-s 00000000 09:03 14                         /tmp/hsperfdata_pdavid/21040
+7fb55ec44000-7fb55ec4b000 r-xp 00000000 00:37 1660391471                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/native_threads/libhpi.so
+7fb55ec4b000-7fb55ed4c000 ---p 00007000 00:37 1660391471                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/native_threads/libhpi.so
+7fb55ed4c000-7fb55ed4e000 rw-p 00008000 00:37 1660391471                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/native_threads/libhpi.so
+7fb55ed4e000-7fb55ed4f000 rw-p 00000000 00:00 0 
+7fb55ed4f000-7fb55ed53000 r--p 00000000 09:06 53084961                   /usr/lib/x86_64-linux-gnu/libnsl-2.31.so
+7fb55ed53000-7fb55ed63000 r-xp 00004000 09:06 53084961                   /usr/lib/x86_64-linux-gnu/libnsl-2.31.so
+7fb55ed63000-7fb55ed68000 r--p 00014000 09:06 53084961                   /usr/lib/x86_64-linux-gnu/libnsl-2.31.so
+7fb55ed68000-7fb55ed69000 r--p 00018000 09:06 53084961                   /usr/lib/x86_64-linux-gnu/libnsl-2.31.so
+7fb55ed69000-7fb55ed6a000 rw-p 00019000 09:06 53084961                   /usr/lib/x86_64-linux-gnu/libnsl-2.31.so
+7fb55ed6a000-7fb55ed6c000 rw-p 00000000 00:00 0 
+7fb55ed6c000-7fb55ed95000 r-xp 00000000 00:37 1123325473                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libjava.so
+7fb55ed95000-7fb55ee94000 ---p 00029000 00:37 1123325473                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libjava.so
+7fb55ee94000-7fb55ee9b000 rw-p 00028000 00:37 1123325473                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libjava.so
+7fb55ee9b000-7fb55eea8000 r-xp 00000000 00:37 1123325454                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libverify.so
+7fb55eea8000-7fb55efa7000 ---p 0000d000 00:37 1123325454                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libverify.so
+7fb55efa7000-7fb55efaa000 rw-p 0000c000 00:37 1123325454                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libverify.so
+7fb55efaa000-7fb55efac000 r--p 00000000 09:06 53084979                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7fb55efac000-7fb55efb0000 r-xp 00002000 09:06 53084979                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7fb55efb0000-7fb55efb2000 r--p 00006000 09:06 53084979                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7fb55efb2000-7fb55efb3000 r--p 00007000 09:06 53084979                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7fb55efb3000-7fb55efb4000 rw-p 00008000 09:06 53084979                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7fb55efb4000-7fb55efc1000 r--p 00000000 09:06 53084955                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7fb55efc1000-7fb55f068000 r-xp 0000d000 09:06 53084955                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7fb55f068000-7fb55f101000 r--p 000b4000 09:06 53084955                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7fb55f101000-7fb55f102000 r--p 0014c000 09:06 53084955                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7fb55f102000-7fb55f103000 rw-p 0014d000 09:06 53084955                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7fb55f103000-7fb55f8b8000 r-xp 00000000 00:37 1937952501                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/server/libjvm.so
+7fb55f8b8000-7fb55f9b7000 ---p 007b5000 00:37 1937952501                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/server/libjvm.so
+7fb55f9b7000-7fb55fb42000 rw-p 007b4000 00:37 1937952501                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/server/libjvm.so
+7fb55fb42000-7fb55fb7b000 rw-p 00000000 00:00 0 
+7fb55fb7b000-7fb55fb8a000 r-xp 00000000 00:37 7028316676                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.0.v20100503/eclipse_1307.so
+7fb55fb8a000-7fb55fc89000 ---p 0000f000 00:37 7028316676                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.0.v20100503/eclipse_1307.so
+7fb55fc89000-7fb55fc8b000 rw-p 0000e000 00:37 7028316676                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.0.v20100503/eclipse_1307.so
+7fb55fc8b000-7fb55fc8e000 rw-p 00000000 00:00 0 
+7fb55fc8e000-7fb55fcb0000 r--p 00000000 09:06 53084951                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7fb55fcb0000-7fb55fe28000 r-xp 00022000 09:06 53084951                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7fb55fe28000-7fb55fe76000 r--p 0019a000 09:06 53084951                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7fb55fe76000-7fb55fe7a000 r--p 001e7000 09:06 53084951                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7fb55fe7a000-7fb55fe7c000 rw-p 001eb000 09:06 53084951                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7fb55fe7c000-7fb55fe80000 rw-p 00000000 00:00 0 
+7fb55fe80000-7fb55fe81000 r--p 00000000 09:06 53084953                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7fb55fe81000-7fb55fe83000 r-xp 00001000 09:06 53084953                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7fb55fe83000-7fb55fe84000 r--p 00003000 09:06 53084953                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7fb55fe84000-7fb55fe85000 r--p 00003000 09:06 53084953                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7fb55fe85000-7fb55fe86000 rw-p 00004000 09:06 53084953                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7fb55fe86000-7fb55fe88000 rw-p 00000000 00:00 0 
+7fb55fe88000-7fb55fe8e000 r--p 00000000 09:06 53084977                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7fb55fe8e000-7fb55fe9f000 r-xp 00006000 09:06 53084977                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7fb55fe9f000-7fb55fea5000 r--p 00017000 09:06 53084977                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7fb55fea5000-7fb55fea6000 r--p 0001c000 09:06 53084977                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7fb55fea6000-7fb55fea7000 rw-p 0001d000 09:06 53084977                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7fb55fea7000-7fb55feab000 rw-p 00000000 00:00 0 
+7fb55feab000-7fb55feae000 r--p 00000000 09:06 53084967                   /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7fb55feae000-7fb55feb5000 r-xp 00003000 09:06 53084967                   /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7fb55feb5000-7fb55feb7000 r--p 0000a000 09:06 53084967                   /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7fb55feb7000-7fb55feb8000 r--p 0000b000 09:06 53084967                   /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7fb55feb8000-7fb55feb9000 rw-p 0000c000 09:06 53084967                   /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7fb55feb9000-7fb55febf000 rw-p 00000000 00:00 0 
+7fb55febf000-7fb55fec1000 r--p 00000000 09:06 53084971                   /usr/lib/x86_64-linux-gnu/libnss_nis-2.31.so
+7fb55fec1000-7fb55fec9000 r-xp 00002000 09:06 53084971                   /usr/lib/x86_64-linux-gnu/libnss_nis-2.31.so
+7fb55fec9000-7fb55fecb000 r--p 0000a000 09:06 53084971                   /usr/lib/x86_64-linux-gnu/libnss_nis-2.31.so
+7fb55fecb000-7fb55fecc000 r--p 0000b000 09:06 53084971                   /usr/lib/x86_64-linux-gnu/libnss_nis-2.31.so
+7fb55fecc000-7fb55fecd000 rw-p 0000c000 09:06 53084971                   /usr/lib/x86_64-linux-gnu/libnss_nis-2.31.so
+7fb55fecd000-7fb55fecf000 r--p 00000000 09:06 53084963                   /usr/lib/x86_64-linux-gnu/libnss_compat-2.31.so
+7fb55fecf000-7fb55fed6000 r-xp 00002000 09:06 53084963                   /usr/lib/x86_64-linux-gnu/libnss_compat-2.31.so
+7fb55fed6000-7fb55fed7000 r--p 00009000 09:06 53084963                   /usr/lib/x86_64-linux-gnu/libnss_compat-2.31.so
+7fb55fed7000-7fb55fed8000 r--p 00009000 09:06 53084963                   /usr/lib/x86_64-linux-gnu/libnss_compat-2.31.so
+7fb55fed8000-7fb55fed9000 rw-p 0000a000 09:06 53084963                   /usr/lib/x86_64-linux-gnu/libnss_compat-2.31.so
+7fb55fed9000-7fb55feda000 rw-p 00000000 00:00 0 
+7fb55feda000-7fb55fedc000 r-xp 00000000 00:37 1123325476                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libjsig.so
+7fb55fedc000-7fb55ffdb000 ---p 00002000 00:37 1123325476                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libjsig.so
+7fb55ffdb000-7fb55ffdc000 rw-p 00001000 00:37 1123325476                 /PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libjsig.so
+7fb55ffdc000-7fb55ffe1000 rw-p 00000000 00:00 0 
+7fb55ffe1000-7fb55ffe5000 r--p 00000000 00:00 0                          [vvar]
+7fb55ffe5000-7fb55ffe7000 r-xp 00000000 00:00 0                          [vdso]
+7fb55ffe7000-7fb55ffe8000 r--p 00000000 09:06 53084943                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7fb55ffe8000-7fb56000b000 r-xp 00001000 09:06 53084943                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7fb56000b000-7fb560013000 r--p 00024000 09:06 53084943                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7fb560013000-7fb560014000 r--p 00000000 00:00 0 
+7fb560014000-7fb560015000 r--p 0002c000 09:06 53084943                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7fb560015000-7fb560016000 rw-p 0002d000 09:06 53084943                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7fb560016000-7fb560017000 rw-p 00000000 00:00 0 
+7ffc66589000-7ffc6658c000 ---p 00000000 00:00 0 
+7ffc6658c000-7ffc66789000 rwxp 00000000 00:00 0                          [stack]
+7ffc66789000-7ffc667a2000 rw-p 00000000 00:00 0 
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Dosgi.configuration.cascaded=true -Dosgi.clean=true -Dosgi.checkConfiguration=true -Dosgi.sharedConfiguration.area=file:configuration/comsol -Dosgi.sharedConfiguration.area.readOnly=true -Dosgi.configuration.area=@user.home/.comsol/v41/configuration/comsol -Dosgi.instance.area=@user.home/.comsol/v41/workspace/comsol -Dcs.logoutput=file -Dcs.logfileprefix=comsol -Dcs.client=true -Xss4m -Xms40m -Xmx1024m -XX:MaxPermSize=256m -Dcs.mlroot=/PRODCOM/MATLAB/matlabr2010b 
+java_command: <unknown>
+Launcher Type: generic
+
+Environment Variables:
+LD_PRELOAD=/PRODCOM/COMSOL/comsol_perpetual_inpt/COMSOL41/java/glnxa64/jre/lib/amd64/libjsig.so
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x70ffd0], sa_mask[0]=0x7fffffff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x70ffd0], sa_mask[0]=0x7fffffff, sa_flags=0x10000004
+SIGFPE: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGPIPE: SIG_IGN, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGXFSZ: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGILL: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x5db510], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x5db260], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x5db260], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x5db260], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x5db260], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:bullseye/sid
+
+uname:Linux 5.13.0-40-generic #45~20.04.1-Ubuntu SMP Mon Apr 4 09:38:31 UTC 2022 x86_64
+libc:glibc 2.31 NPTL 2.31 
+rlimit: STACK 8192k, CORE 0k, NPROC 30978, NOFILE 1048576, AS infinity
+load average:1.85 1.36 1.09
+
+CPU:total 4 (8 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 8048604k(254192k free), swap 2095100k(630220k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (16.3-b01) for linux-amd64 JRE (1.6.0_20-b02), built on Apr 12 2010 13:57:11 by "java_re" with gcc 3.2.2 (SuSE Linux)
+
+time: Tue May 10 14:44:22 2022
+elapsed time: 352814 seconds
+
