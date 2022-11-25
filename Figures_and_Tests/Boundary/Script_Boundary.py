@@ -16,11 +16,11 @@ Malphigui=1
 if Malphigui:
     directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
     directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Boundary'
-    csv_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Boundary/csv_outputs'
+    csv_directory='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Boundary/csv_outputs'
 else: #Auto_58
     directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Code/'
     directory_script='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/Boundary'
-    csv_script='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/Boundary/csv_outputs'
+    csv_directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/Boundary/csv_outputs'
 os.chdir(directory)
 
 
@@ -40,7 +40,7 @@ import scipy as sp
 from scipy import sparse
 import scipy.sparse.linalg
 import matplotlib.pylab as pylab
-import pandas
+import pandas as pd
 params = {'legend.fontsize': 'x-large',
           'figure.figsize': (6,6 ),
          'axes.labelsize': 'x-large',
@@ -191,4 +191,17 @@ plt.xlabel("d/h $\mu m$")
 plt.ylabel('Relative error')
 plt.legend()
 plt.show()
+
+
+
+
+#%%
+pd.DataFrame(dist_array/h_coarse).to_csv(csv_directory + '/d_array_h.csv', sep=',', index=None)
+pd.DataFrame(q_FEM_array).to_csv(csv_directory + '/q_FEM_array.csv', sep=',', index=None)
+pd.DataFrame(q_Multi_array).to_csv(csv_directory + '/q_Multi_array.csv', sep=',', index=None)
+pd.DataFrame(q_FV_array).to_csv(csv_directory + '/q_FV_array.csv', sep=',', index=None)
+pd.DataFrame(err_phi_Multi_point).to_csv(csv_directory + '/err_phi_Multi_point.csv', sep=',', index=None)
+pd.DataFrame(err_phi_FV).to_csv(csv_directory + '/err_phi_FV.csv', sep=',', index=None)
+
+
 
