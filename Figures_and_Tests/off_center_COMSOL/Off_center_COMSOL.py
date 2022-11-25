@@ -6,11 +6,11 @@ Malphigui=1
 if Malphigui:
     directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
     directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/off_center_COMSOL'
-    csv_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/off_center_COMSOL/csv_outputs'
+    csv_directory='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/off_center_COMSOL/csv_outputs'
 else: #Auto_58
     directory='/home/pdavid/Bureau/Code/Updated_BCs_2/Code/'
     directory_script='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/oFff_center'
-    csv_script='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/off_center/csv_outputs'
+    csv_directory='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/off_center/csv_outputs'
 os.chdir(directory)
 
 
@@ -115,6 +115,10 @@ print("MRE q no Peaceman Model= ", get_MRE(q_FEM[0], FV_noPeac_q))
 #%%
 points=5
 off=np.linspace(0,h_coarse/2-h_coarse/10,points)
+
+pd.DataFrame(off/h_coarse).to_csv(csv_directory + '/off.csv', sep=',', index=None)
+
+
 q_Multi_int=np.zeros((points, points))
 q_Multi_no_int=np.zeros((points, points))
 
@@ -137,7 +141,20 @@ for no_interp in np.array([0,1]):
             cj+=1
             c_tot+=1
         ci+=1
-        
+    
+#%%
+b=pd.DataFrame(np.ndarray.flatten(q_Multi_no_int))
+b.columns=['q no interpolation']
+b.to_csv(csv_directory + '/no_interp.csv', sep=',', index=None)
+
+b=pd.DataFrame(np.ndarray.flatten(q_Multi_int))
+b.columns=['q interpolation']
+b.to_csv(csv_directory + '/interp.csv', sep=',', index=None)
+
+b=pd.DataFrame(np.ndarray.flatten(q_FEM))
+b.columns=['q FEM']
+b.to_csv(csv_directory + '/q_FEM.csv', sep=',', index=None)
+
         #%%
 from matplotlib import rcParams
 rcParams.update({'figure.autolayout': True})

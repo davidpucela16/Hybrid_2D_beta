@@ -12,15 +12,15 @@ both Dirichlet and periodic BCs
 
 #Define Computer
 import os
-Malphigui=0
+Malphigui=1
 if Malphigui:
-    directory='/home/pdavid/Bureau/Updated_BCs_2/Code' #Malpighi
-    directory_script='/home/pdavid/Bureau/Updated_BCs_2/Figures_and_Tests/Boundary'
-    csv_script='/home/pdavid/Bureau/Updated_BCs_2/Figures_and_Tests/Boundary/csv_outputs'
+    directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
+    directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Boundary'
+    csv_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Boundary/csv_outputs'
 else: #Auto_58
-    directory='/home/pdavid/Bureau/Code/Updated_BCs_2/Code/'
-    directory_script='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/Boundary'
-    csv_script='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/Boundary/csv_outputs'
+    directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Code/'
+    directory_script='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/Boundary'
+    csv_script='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/Boundary/csv_outputs'
 os.chdir(directory)
 
 
@@ -135,7 +135,7 @@ for dist in dist_array:
     print("folder for c={}: Boundary_dist=0{}".format(c,int(dist*10/h_coarse)))
     pos_s=np.array([[1,0.5]])*L-np.array([Rv[0],0])-np.array([dist,0])
     t=Testing(pos_s, Rv, cells, L,  K_eff, D, directness, 1, C_v_array, BC_type, BC_value)
-    FV_FV, FV_q=t.Linear_FV_Peaceman(1) #Construct the FV comparison 
+    FV_FV, FV_q=t.Linear_FV_Peaceman(0) #Construct the FV comparison 
     
     t=Testing(pos_s, Rv, cells, L,  K_eff, D, directness, 20, C_v_array, BC_type, BC_value)
     s_Multi_cart_linear, q_Multi_linear=t.Multi()
