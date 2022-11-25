@@ -1,6 +1,1 @@
-% Model:                COMSOL_metab.mph
-% Version:              COMSOL 4.1.0.88
-% Date:                 Nov 24 2022, 19:18
-% Table:                Table 4 - Line Integration 1 (poeq.g_u)
-% Boundary flux/source
 0.38465938620074336

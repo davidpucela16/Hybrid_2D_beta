@@ -12,12 +12,12 @@ both Dirichlet and periodic BCs
 #djkflmjaze
 import os
 
-Malphigui=0
+Malphigui=1
 
 if Malphigui:
-    directory='/home/pdavid/Bureau/Updated_BCs_2/Code' #Malpighi
-    directory_script='/home/pdavid/Bureau/Updated_BCs_2/Figures_and_Tests/base'
-    csv_directory='/home/pdavid/Bureau/Updated_BCs_2/Figures_and_Tests/base/csv_outputs'
+    directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
+    directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/base_small'
+    csv_directory='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/base_small/csv_outputs'
 else: #Auto_58
     directory='/home/pdavid/Bureau/Code/Updated_BCs_2/Code/'
     directory_script='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/base'
@@ -51,7 +51,7 @@ pylab.rcParams.update(params)
 
 #0-Set up the sources
 #1-Set up the domain
-alpha=50
+alpha=240
 
 Da_t=10
 D=1
@@ -104,15 +104,16 @@ Peaceman_reference=0
 directory_COMSOL= directory_script + '/COMSOL_output/linear'
 directory_COMSOL_metab=directory_script + '/COMSOL_output/metab'
 
+if not os.path.exists(csv_directory): os.mkdir(csv_directory)
+if not os.path.exists(csv_directory + '/linear'): os.mkdir(csv_directory + '/linear')    
+if not os.path.exists(csv_directory + '/metab'): os.mkdir(csv_directory + '/metab')
 
 array_of_cells=np.arange(23)+3
 save_csv(csv_directory + '/array_of_cells.csv', ['range of cells'],array_of_cells)
 array_of_cells=np.squeeze(np.array(pd.read_csv(csv_directory + '/array_of_cells.csv')))
 
 
-if not os.path.exists(csv_directory): os.mkdir(csv_directory)
-if not os.path.exists(csv_directory + '/linear'): os.mkdir(csv_directory + '/linear')    
-if not os.path.exists(csv_directory + '/metab'): os.mkdir(csv_directory + '/metab')  
+  
 
 for i in array_of_cells:  
     if not os.path.exists(csv_directory + '/linear/cells={}'.format(i)): os.mkdir(csv_directory + '/linear/cells={}'.format(i))
@@ -125,6 +126,17 @@ plot_sketch(x_coarse, y_coarse, directness, h_coarse, pos_s, L, directory_script
 q_linear, phi_FEM_linear, x_FEM_linear, y_FEM_linear, FEM_x_1D_linear, FEM_y_1D_linear, x_1D_linear, y_1D_linear = extract_COMSOL_data(directory_COMSOL, [1,1,1])
 
 q_metab, phi_FEM_metab, x_FEM_metab, y_FEM_metab, FEM_x_1D_metab, FEM_y_1D_metab, x_1D_metab, y_1D_metab = extract_COMSOL_data(directory_COMSOL_metab, [1,1,1])
+
+#The following is due to the conversion COMSOL micrometers
+x_FEM_metab/=1e6
+x_FEM_linear/=1e6
+y_FEM_metab/=1e6
+y_FEM_linear/=1e6
+x_1D_linear/=1e6
+y_1D_linear/=1e6
+x_1D_metab/=1e6
+y_1D_metab/=1e6
+
 
 #%%
 
@@ -198,13 +210,15 @@ point_err_phi_linear=np.zeros(len(array_of_cells))
 stabilization_array=np.zeros(len(array_of_cells))+0.5
 stabilization_array[array_of_cells>17]=0.2
 
-c=0
+
 
 residual=np.zeros(())
+c=0
+#%%
+
 for cells in array_of_cells[c:]:
     
     h_coarse=L/cells
-    
     #Definition of the Cartesian Grid
     x_coarse=np.linspace(h_coarse/2, L-h_coarse/2, int(np.around(L/h_coarse)))
     y_coarse=x_coarse
@@ -216,6 +230,15 @@ for cells in array_of_cells[c:]:
     q_linear, phi_FEM_linear, x_FEM_linear, y_FEM_linear, FEM_x_1D_linear, FEM_y_1D_linear, x_1D_linear, y_1D_linear = extract_COMSOL_data(directory_COMSOL, [1,1,1])
     q_metab, phi_FEM_metab, x_FEM_metab, y_FEM_metab, FEM_x_1D_metab, FEM_y_1D_metab, x_1D_metab, y_1D_metab = extract_COMSOL_data(directory_COMSOL_metab, [1,1,1])
     
+    #The following is due to the conversion COMSOL micrometers
+    x_FEM_metab/=1e6
+    x_FEM_linear/=1e6
+    y_FEM_metab/=1e6
+    y_FEM_linear/=1e6
+    x_1D_linear/=1e6
+    y_1D_linear/=1e6
+    x_1D_metab/=1e6
+    y_1D_metab/=1e6
     #We create the testing object
     t=Testing(pos_s, Rv, cells, L,  K_eff, D, directness, ratio, C_v_array, BC_type, BC_value)
     t.stabilization=stabilization_array[c]
@@ -230,7 +253,6 @@ for cells in array_of_cells[c:]:
     phi_Multi_FEM_metab[c],_,_=t.Reconstruct_Multi(1,0, x_FEM_metab, y_FEM_metab)
     
     residual=np.append(residual, t.residual)
-    
     #Calculate errors!!!
     err_q_Multi_linear[c]=get_MRE(q_linear,t.q_Multi_linear)
     err_phi_Multi_linear[c]=get_MRE(phi_FEM_linear, phi_Multi_FEM_linear[c])

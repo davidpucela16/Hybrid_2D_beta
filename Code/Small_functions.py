@@ -1,6 +1,8 @@
 
 import numpy as np 
 
+
+
 def pos_to_coords(x, y, ID):
     xpos=ID%len(x)
     ypos=ID//len(x)
@@ -19,6 +21,9 @@ from matplotlib.patches import Rectangle
 import matplotlib.pyplot as plt
 from Small_functions import coord_to_pos, pos_to_coords
 
+
+from matplotlib import pyplot as plt, patches
+
 def plot_sketch(x, y, directness, h, pos_s, L, directory, *title):
 
     vline=(y[1:]+x[:-1])/2
@@ -35,7 +40,8 @@ def plot_sketch(x, y, directness, h, pos_s, L, directory, *title):
                          fill=True,
                          lw=5, zorder=0))
             c+=1
-    plt.scatter(pos_s[:,0], pos_s[:,1], color='r')
+    circle1 = patches.Circle((pos_s[:,0], pos_s[:,1]), radius=L/50, color='red')
+    ax.add_patch(circle1)
     if title:
         plt.title(title[0])
     for xc in vline:
