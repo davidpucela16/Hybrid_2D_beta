@@ -12,16 +12,16 @@ both Dirichlet and periodic BCs
 #djkflmjaze
 import os
 
-Malphigui=1
+Malphigui=0
 
 if Malphigui:
     directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
     directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/base_small'
     csv_directory='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/base_small/csv_outputs'
 else: #Auto_58
-    directory='/home/pdavid/Bureau/Code/Updated_BCs_2/Code/'
-    directory_script='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/base'
-    csv_directory='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/base/csv_outputs'
+    directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Code/'
+    directory_script='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/base_small'
+    csv_directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/base_small/csv_outputs'
 os.chdir(directory)
 import numpy as np 
 import matplotlib.pyplot as plt
