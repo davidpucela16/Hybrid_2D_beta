@@ -419,3 +419,17 @@ def load_var_name(directory, variable):
     variable_name= f'{variable=}'.split('=')[0] 
     path=directory +'/' + variable_name + '.csv'
     return(pd.read_csv(path).to_numpy())
+
+
+def array_cartesian_positions(x, y):
+    x_c=np.zeros(len(x)*len(y))
+    y_c=np.copy(x_c)
+    for i in range(len(y)):
+        x_c[i*len(x):(i+1)*len(x)]=x
+        y_c[i*len(x):(i+1)*len(x)]=np.zeros(len(x))+y[i]
+    return(x_c, y_c)
+        
+        
+    
+    
+    

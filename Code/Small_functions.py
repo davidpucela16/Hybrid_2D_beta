@@ -40,8 +40,9 @@ def plot_sketch(x, y, directness, h, pos_s, L, directory, *title):
                          fill=True,
                          lw=5, zorder=0))
             c+=1
-    circle1 = patches.Circle((pos_s[:,0], pos_s[:,1]), radius=L/50, color='red')
-    ax.add_patch(circle1)
+    for i in pos_s:     
+        circle1 = patches.Circle((i[0], i[1]), radius=L/50, color='red')
+        ax.add_patch(circle1)
     if title:
         plt.title(title[0])
     for xc in vline:

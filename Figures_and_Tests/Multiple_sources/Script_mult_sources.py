@@ -11,15 +11,15 @@ both Dirichlet and periodic BCs
 """
 #djkflmjaze
 import os
-Malphigui=0
+Malphigui=1
 if Malphigui:
-    directory='/home/pdavid/Bureau/Updated_BCs_2/Code' #Malpighi
-    directory_script='/home/pdavid/Bureau/Updated_BCs_2/Figures_and_Tests/Multiple_sources'
-    csv_directory='/home/pdavid/Bureau/Updated_BCs_2/Figures_and_Tests/Multiple_sources/csv_outputs'
+    directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
+    directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Multiple_sources'
+    csv_directory='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Multiple_sources/csv_outputs'
 else: #Auto_58
-    directory='/home/pdavid/Bureau/Code/Updated_BCs_2/Code/'
-    directory_script='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/Multiple_sources'
-    csv_directory='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/Multiple_sources/csv_outputs'
+    directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Code/'
+    directory_script='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/Multiple_sources'
+    csv_directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/Multiple_sources/csv_outputs'
 os.chdir(directory)
 import numpy as np 
 import matplotlib.pyplot as plt
@@ -29,7 +29,7 @@ from Module_Coupling import assemble_SS_2D_FD, non_linear_metab
 from reconst_and_test_module import reconstruction_sans_flux
 from Small_functions import coord_to_pos,pos_to_coords,get_MAE, get_MRE, get_position_cartesian_sources, plot_sketch
 from Reconstruction_extended_space import reconstruction_extended_space
-from Testing import Testing, extract_COMSOL_data, FEM_to_Cartesian, save_csv
+from Testing import Testing, extract_COMSOL_data, FEM_to_Cartesian, save_csv,array_cartesian_positions
 from Reconstruction_functions import coarse_cell_center_rec
 
 import pdb
@@ -113,7 +113,7 @@ BC_type=np.array(['Neumann',  'Neumann','Dirichlet', 'Dirichlet'])
 #What comparisons are we making 
 COMSOL_reference=1
 non_linear=1
-Peaceman_reference=0
+FV_reference=1
 coarse_reference=0
 directory_COMSOL='../Figures_and_Tests/Multiple_sources/COMSOL_output/linear'
 directory_COMSOL_metab='../Figures_and_Tests/Multiple_sources/COMSOL_output/metab'
@@ -144,6 +144,10 @@ err_q_linear=np.array([])
 err_phi_linear=np.array([])
 err_q_metab=np.array([])
 err_phi_metab=np.array([])
+
+FV_err_q_linear=np.array([])
+FV_err_phi_linear=np.array([])
+FV_q_linear=np.array([])
 
 
 for cells in range_cells:
@@ -187,6 +191,14 @@ for cells in range_cells:
                                                   ['x','y','phi'],
                                                   np.array([ x_c, y_c,np.ndarray.flatten(Multi_rec_cart_metab)]))
         save_csv(dir_sim+'/q_Multi_metab.csv', ['q'], q_Multi_metab)
+    
+    if FV_reference:
+        FV=Testing(pos_s, Rv, cells, L,  K_eff, D, directness, 1, C_v_array, BC_type, BC_value)
+        phi_FV_cart_linear, q_FV_linear=FV.Linear_FV_Peaceman(0) #FV solution without Peaceman approx
+        x_FV, y_FV=array_cartesian_positions(FV.x_coarse, FV.y_coarse)
+        save_csv(dir_sim+'/phi_FV_cart_linear.csv', ['x','y','phi'],
+                np.array([ x_FV, y_FV, np.ndarray.flatten(phi_FV_cart_linear)]))   
+        save_csv(dir_sim+'/q_FV_linear.csv', ['q'],q_FV_linear)      
         
         
     if COMSOL_reference:
@@ -224,7 +236,7 @@ for cells in range_cells:
         err_q_linear=np.append(err_q_linear, get_MRE(q_linear, q_Multi_linear))
         err_phi_linear=np.append(err_phi_linear, get_MRE(phi_FEM_cart_coarse_linear,phi_Multi_cart_coarse_linear))
         
-        
+               
         
         dir_sim=directory_script + '/csv_outputs/linear/cells={}'.format(cells)
 
@@ -232,6 +244,10 @@ for cells in range_cells:
                 np.array([ x_FEM_linear, y_FEM_linear, phi_Multi_FEM_linear]))
         save_csv(dir_sim+'/phi_FEM_linear.csv', ['x', 'y', 'phi'],
                  np.array([x_FEM_linear, y_FEM_linear, phi_FEM_linear]))
+        
+        if FV_reference:
+            FV_err_q_linear=np.append(FV_err_q_linear, get_MRE(q_linear, q_FV_linear))
+            FV_err_phi_linear=np.append(FV_err_phi_linear, get_MRE(np.ndarray.flatten(phi_FEM_cart_coarse_linear), phi_FV_cart_linear))
         
         if non_linear:
             
@@ -275,12 +291,16 @@ for cells in range_cells:
                     np.array([ FEM_x_metab, FEM_y_metab, phi_Multi_FEM_metab]))
             save_csv(dir_sim+'/phi_FEM_metab.csv', ['x','y','phi'],
                     np.array([ FEM_x_metab, FEM_y_metab, phi_FEM_metab]))
+        
 
 
 save_csv(csv_directory + '/err_q_linear.csv', ['err_q_linear'], err_q_linear)
 save_csv(csv_directory + '/err_phi_linear.csv', ['err_phi_linear'], err_phi_linear)
 save_csv(csv_directory + '/err_q_metab.csv', ['err_q_metab'], err_q_metab)
 save_csv(csv_directory + '/err_phi_metab.csv', ['err_phi_metab'], err_phi_metab)
+
+save_csv(csv_directory + '/err_FV_q_linear.csv', ['err_q_metab'], FV_err_q_linear)
+save_csv(csv_directory + '/err_FV_phi_linear.csv', ['err_phi_metab'], FV_err_phi_linear)
 
 #%%
 q_metab=np.squeeze(np.array(q_metab))
