@@ -1,0 +1,137 @@
+
+\begin{subnumcases} {\label{weqn} w\equiv}
+0 & for $c = d = 0$\label{wzero}\\
+\sqrt{|c|}\,\sqrt{\frac{1 + \sqrt{1+(d/c)^2}}{2}} & for $|c| \geq |d|$ \\
+\sqrt{|d|}\,\sqrt{\frac{|c/d| + \sqrt{1+(c/d)^2}}{2}} & for $|c| < |d|$
+\end{subnumcases}
+Then, using $w$ from eq.~(\ref{weqn}), the square root is
+\begin{subnumcases}{\label{sqrteqn} \sqrt{c+id}=}
+0\,, & $w=0$ (case \ref{wzero})\\
+w+i\frac{d}{2w}\,, & $w \neq 0$, $c \geq 0$ \\
+\frac{|d|}{2w} + iw\,, & $w \neq 0$, $c < 0$, $d \geq 0$ \\
+\frac{|d|}{2w} - iw\,, & $w \neq 0$, $c < 0$, $d < 0$
+\end{subnumcases}
+
+\begin{subequations}
+\begin{equation}
+    \nabla^2 \phi = 0 \text{ in } \Omega_\sigma
+\end{equation}
+\begin{equation}
+    -\mathbf{n} \cdot(D \boldsymbol{\nabla} \phi) = \dfrac{q_j}{2 \pi R_j} \text{ on } \partial \Omega_{\beta,j}
+\end{equation}
+\begin{equation}
+    \phi = \phi_D    \text{ on } \partial \Omega
+\end{equation}
+    
+\end{subequations}
+
+
+\begin{equation}
+\overline{\phi}_j= \dfrac{1}{2 \pi R_j}\int_{\partial \Omega_{\beta,j}} \phi(\mathbf{x})d\sigma
+\end{equation} 
+\begin{equation}
+    q_j = K_{eff} \pi R_j^2 (\mathbb{C}_j - \overline{\phi}_j)
+\end{equation}
+
+
+
+
+\begin{equation}
+    \phi(\mathbf{x}) = \mathcal{s}(\mathbf{x}) + \mathcal{r}(\mathbf{x})
+\end{equation}
+
+\begin{subnumcases}{}
+   \nabla^2 \mathcal{r}_k = 0 & \text{in } $\Omega_\sigma$\\
+   -\mathbf{n} \cdot(D \boldsymbol{\nabla} \mathcal{r}_k) = \dfrac{q_j}{2 \pi R_j} & \text{on } $\partial \Omega_{\beta,j} \, \forall j \in E(V_k)$
+\end{subnumcases}
+
+
+\begin{equation}
+  \nabla^2 \mathcal{r}_k = 0 \quad in \; \Omega_\sigma
+\end{equation}
+\begin{equation}
+  -\mathbf{n} \cdot(D \boldsymbol{\nabla} \mathcal{r}_k) = \dfrac{q_j}{2 \pi R_j} \quad on \; \partial \Omega_{\beta,j} \, \forall j \in E(V_k) 
+\end{equation}
+\begin{equation}
+    \oint_{\partial V_k} -D (\boldsymbol{\nabla} \mathcal{r}_k \cdot \mathbf{n})dS = \sum_{j \in V_k} q_j
+\end{equation}
+
+\begin{equation}
+    \mathcal{s}_k(\mathbf{x}) = 
+\begin{cases}
+ \phi(\mathbf{x}) - \mathcal{r}_k(\mathbf{x}) & \text{for  } \mathbf{x} \in V_k \\
+ 0 & \text{else}
+\end{cases}
+\end{equation}
+
+\begin{subnumcases}{}
+  \nabla^2 \mathcal{s}_k(\mathbf{x}) = 0 & \text{for } $\mathbf{x} \in V_k$\\
+   \mathcal{s}_k(\mathbf{x}) = \phi_D - \mathcal{r}_k(\mathbf{x}) & \text{if } $\mathbf{x} \in \partial \Omega$ \\
+\mathbf{n} \cdot \boldsymbol{\nabla} \mathcal{s}_k(\mathbf{x}) = 0& \text{if }  $\mathbf{x} \in \partial \Omega_\beta$
+\end{subnumcases}
+
+
+\begin{subnumcases}{}
+\mathbf{n} \cdot (\boldsymbol{\nabla}\phi) \big\rvert_{\partial V_{km}} = \mathbf{n}\cdot (\boldsymbol{\nabla}\phi) \big\rvert_{\partial V_{mk}} \\
+  \phi \big\rvert_{\partial V_{km}} = \phi \big\rvert_{\partial V_{mk}}
+\end{subnumcases}
+
+
+\begin{subnumcases}{}
+ \mathbf{n} \cdot (\boldsymbol{\nabla}\mathcal{r}_k(\mathbf{x}) + \boldsymbol{\nabla}\mathcal{s}_k(\mathbf{x})) \big\rvert_{\partial V_{km}} = 
+\mathbf{n}    \cdot (\boldsymbol{\nabla}\mathcal{r}_m(\mathbf{x})+ \boldsymbol{\nabla}\mathcal{s}_m(\mathbf{x})) \big\rvert_{\partial V_{mk}} \\
+(\mathcal{r}_k(\mathbf{x}) + \mathcal{s}_k(\mathbf{x})) \big\rvert_{\partial V_{km}}   =  (\mathcal{r}_m(\mathbf{x}) + \mathcal{s}_k(\mathbf{x})) \big\rvert_{\partial V_{mk}}
+\end{subnumcases}
+
+
+\begin{equation}
+    (\boldsymbol{\nabla} \mathcal{s}_{k} (\mathbf{x}) \cdot \mathbf{n} )\bigg\rvert_{\partial V_{km}} \approx \dfrac{\widetilde{\mathcal{s}}_{k,m} - \widetilde{\mathcal{s}}_k}{h/2}
+\end{equation}
+\begin{equation}
+\overline{\phi}_j = \sum_{i \in Q} \mathcal{I}(\Ss, \mathbf{q}; \mathbf{x}_j) + \mathcal{r}_k(\mathbf{x}_j) \quad \text{for} \quad j \in E(\widehat{V}_k)
+\end{equation}
+
+$$
+\mathcal{N}^k:=  \{n,s,e,w\}
+$$
+\begin{equation}
+    -4\widetilde{\mathcal{s}}_k + \sum_{m \in \mathcal{N}^k} \widetilde{\mathcal{s}}_{k,m} = 0
+\end{equation}
+
+
+
+\begin{subnumcases}{}
+D\dfrac{\widetilde{\mathcal{s}}_{k,m} - \widetilde{\mathcal{s}}_k}{h/2} - D\dfrac{\widetilde{\mathcal{s}}_{m} - \widetilde{\mathcal{s}}_{m,k}}{h/2} =  \mathbf{n} \cdot (  D\boldsymbol{\nabla} \mathcal{r}_{m} (\mathbf{x}) -D \boldsymbol{\nabla} \mathcal{r}_{k} (\mathbf{x} ) \color{black})\bigg\rvert_{\partial V_{mk}} \\
+\widetilde{\mathcal{s}}_{k,m} + \mathcal{r}_{k,m}= \widetilde{\mathcal{s}}_{m,k}+\mathcal{r}_{m,k}
+\end{subnumcases}
+
+\begin{equation}
+    \widetilde{\mathcal{s}}_{k,m} = \phi_D - \mathcal{r}_{k,m} \quad \text{if} \quad \partial V_{km} \in \partial \Omega 
+\end{equation}
+
+
+\section{Results}
+
+\subsection{Validation of the linear model for one source}
+
+\subsubsection{Single source}
+The errors are defined as follows; for the local errors we evaluate the vessel-tissue exchanges ($\mathbf{q}$)
+\begin{equation}
+    \varepsilon_q^j = \dfrac{|q_{j} - q_{j,ref}|}{q_{j,ref}}
+\end{equation}
+and for the estimation of the concentration field:
+\begin{equation}
+    \varepsilon_\phi^k = \dfrac{|\phi_k - \phi_{k,ref}|}{\phi_{k,ref}}
+\end{equation}
+
+The global errors are defined as:
+
+begin{equation}
+    \varepsilon_q^g = \sum_{j \in E(\Omega)} \dfrac{\varepsilon_q^j}{Card(E(\Omega))}
+\end{equation}
+and
+\begin{equation}
+        \varepsilon_{\phi}^g = \sum_{k \in [1,N]} \dfrac{\varepsilon_\phi^k}{N}
+\end{equation}
+where N is the number of discrete FV cells on the cartesian mesh.
+

@@ -102,7 +102,8 @@ class FV_validation():
         q=np.array([self.R*(self.phi_j-phi[self.s_blocks])])
         phi=np.array([phi])
         rerr_q=np.array([1])
-        while rerr_q[-1]>0.00005:
+        iterations=0
+        while rerr_q[-1]>0.00005 and iterations<500:
             #pdb.set_trace()
             Jacobian=self.A+np.diag(self.get_partial_Im_phi(phi[-1]))
             
@@ -112,6 +113,7 @@ class FV_validation():
             q=np.concatenate([q,[self.R*(self.phi_j-phi[-1,self.s_blocks])]], axis=0)
             rerr_q=np.append(rerr_q, np.max(np.abs(q[-1]-q[-2]))/np.max(np.abs(q[-1])))
             print("Residual q FV: ",rerr_q[-1])
+            iterations+=1
         self.phi_metab=phi
         self.q_metab=q[-1]
         self.accumul_q=q

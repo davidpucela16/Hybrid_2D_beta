@@ -15,13 +15,13 @@ import os
 Malphigui=0
 
 if Malphigui:
-    directory='/home/pdavid/Bureau/Updated_BCs_2/Code' #Malpighi
-    directory_script='/home/pdavid/Bureau/Updated_BCs_2/Figures_and_Tests/base'
-    csv_directory='/home/pdavid/Bureau/Updated_BCs_2/Figures_and_Tests/base/csv_outputs'
+    directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
+    directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/base'
+    csv_directory='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/base/csv_outputs'
 else: #Auto_58
-    directory='/home/pdavid/Bureau/Code/Updated_BCs_2/Code/'
-    directory_script='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/base'
-    csv_directory='/home/pdavid/Bureau/Code/Updated_BCs_2/Figures_and_Tests/base/csv_outputs'
+    directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Code/'
+    directory_script='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/base'
+    csv_directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/base/csv_outputs'
 os.chdir(directory)
 import numpy as np 
 import matplotlib.pyplot as plt
@@ -105,7 +105,8 @@ directory_COMSOL= directory_script + '/COMSOL_output/linear'
 directory_COMSOL_metab=directory_script + '/COMSOL_output/metab'
 
 
-array_of_cells=np.arange(23)+3
+array_of_cells=np.arange(18)*2+3
+#array_of_cells=(np.arange(10))*4+3
 save_csv(csv_directory + '/array_of_cells.csv', ['range of cells'],array_of_cells)
 array_of_cells=np.squeeze(np.array(pd.read_csv(csv_directory + '/array_of_cells.csv')))
 
@@ -195,8 +196,10 @@ err_q_FV_metab=np.zeros(len(array_of_cells))
 point_err_phi_metab=np.zeros(len(array_of_cells))
 point_err_phi_linear=np.zeros(len(array_of_cells))
 
-stabilization_array=np.zeros(len(array_of_cells))+0.5
-stabilization_array[array_of_cells>17]=0.2
+# =============================================================================
+# stabilization_array=np.zeros(len(array_of_cells))+0.5
+# stabilization_array[array_of_cells>17]=0.2
+# =============================================================================
 
 c=0
 
@@ -218,7 +221,7 @@ for cells in array_of_cells[c:]:
     
     #We create the testing object
     t=Testing(pos_s, Rv, cells, L,  K_eff, D, directness, ratio, C_v_array, BC_type, BC_value)
-    t.stabilization=stabilization_array[c]
+    #t.stabilization=stabilization_array[c]
     
     #Linear Multiscale model
     s_FV_Multi_linear, q_Multi_linear[c]=t.Multi() #Obtain the values of the unknowns

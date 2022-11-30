@@ -510,10 +510,8 @@ class non_linear_metab(assemble_SS_2D_FD):
             metab[phi<0]=0
             part_FV=self.part_Im_s_FV
             part_q=self.part_Im_q
-# =============================================================================
-#             part_FV=self.part_Im_s_FV*M*self.h**2
-#             part_q=self.part_Im_q*M*self.h**2
-# =============================================================================
+            part_FV=self.part_Im_s_FV*M*self.h**2
+            part_q=self.part_Im_q*M*self.h**2
             Jacobian=np.concatenate((np.diag(part_FV)+self.A_matrix, 
                                      part_q+self.b_matrix), axis=1)
             

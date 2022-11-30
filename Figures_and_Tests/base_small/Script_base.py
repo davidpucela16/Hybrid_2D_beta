@@ -108,7 +108,7 @@ if not os.path.exists(csv_directory): os.mkdir(csv_directory)
 if not os.path.exists(csv_directory + '/linear'): os.mkdir(csv_directory + '/linear')    
 if not os.path.exists(csv_directory + '/metab'): os.mkdir(csv_directory + '/metab')
 
-array_of_cells=np.arange(23)+3
+array_of_cells=(np.arange(7))*6+3
 save_csv(csv_directory + '/array_of_cells.csv', ['range of cells'],array_of_cells)
 array_of_cells=np.squeeze(np.array(pd.read_csv(csv_directory + '/array_of_cells.csv')))
 
@@ -326,6 +326,12 @@ save_csv(csv_directory+'/err_q_FV_metab.csv', ['L1 err'],np.array(err_q_FV_metab
 
  #%%
 R=np.linalg.norm(Rv)
+
+h=L/array_of_cells/R
+xlabel="h/R"
+h=L/array_of_cells
+xlabel="h [$\mu m$]"
+
 #plt.plot(L/array_of_cells/R, err_phi_Multi_linear,'-o', label='$\\varepsilon^g_\phi$ Multiscale')
 plt.plot(L/array_of_cells/R, point_err_phi_linear,'-o', label='$\\varepsilon^g_\phi$ Multiscale')
 plt.plot(L/array_of_cells/R, err_q_Multi_linear,'-o', label='$\\varepsilon^g_q$ Multiscale')
