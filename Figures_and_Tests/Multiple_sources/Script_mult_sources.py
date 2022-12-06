@@ -11,7 +11,7 @@ both Dirichlet and periodic BCs
 """
 #djkflmjaze
 import os
-Malphigui=1
+Malphigui=0
 if Malphigui:
     directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
     directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Multiple_sources'
@@ -147,7 +147,11 @@ err_phi_metab=np.array([])
 
 FV_err_q_linear=np.array([])
 FV_err_phi_linear=np.array([])
+
 FV_q_linear=np.array([])
+
+FV_err_q_metab=np.array([])
+FV_err_phi_metab=np.array([])
 
 
 for cells in range_cells:
@@ -165,7 +169,6 @@ for cells in range_cells:
     phi_Multi_cart_fine_linear,_,_=t.Reconstruct_Multi(0,0)
     
     
-    
     length=cells*ratio
     x_c, y_c = np.zeros((cells*ratio)**2),np.zeros((cells*ratio)**2)
     for i in range(len(t.y_fine)):
@@ -175,6 +178,7 @@ for cells in range_cells:
         
         
     dir_sim=directory_script + '/csv_outputs/linear/cells={}'.format(cells)
+
     save_csv(dir_sim+'/phi_Multi_cart_fine_linear.csv', 
                                                   ['x','y','phi'],
                                                   np.array([ x_c, y_c,np.ndarray.flatten(phi_Multi_cart_fine_linear)]))
@@ -191,7 +195,15 @@ for cells in range_cells:
                                                   ['x','y','phi'],
                                                   np.array([ x_c, y_c,np.ndarray.flatten(Multi_rec_cart_metab)]))
         save_csv(dir_sim+'/q_Multi_metab.csv', ['q'], q_Multi_metab)
-    
+        
+        if FV_reference:
+            FV_m=Testing(pos_s, Rv, cells, L,  K_eff, D, directness, 1, C_v_array, BC_type, BC_value)
+            phi_FV_cart_metab, q_FV_metab=FV_m.Metab_FV_Peaceman(M, phi_0, 0)
+            x_FV, y_FV=array_cartesian_positions(FV_m.x_coarse, FV_m.y_coarse)
+            save_csv(dir_sim+'/phi_FV_cart_metab.csv', ['x','y','phi'],
+                    np.array([ x_FV, y_FV, np.ndarray.flatten(phi_FV_cart_metab)]))   
+            save_csv(dir_sim+'/q_FV_metab.csv', ['q'],q_FV_metab)  
+            
     if FV_reference:
         FV=Testing(pos_s, Rv, cells, L,  K_eff, D, directness, 1, C_v_array, BC_type, BC_value)
         phi_FV_cart_linear, q_FV_linear=FV.Linear_FV_Peaceman(0) #FV solution without Peaceman approx
@@ -291,7 +303,9 @@ for cells in range_cells:
                     np.array([ FEM_x_metab, FEM_y_metab, phi_Multi_FEM_metab]))
             save_csv(dir_sim+'/phi_FEM_metab.csv', ['x','y','phi'],
                     np.array([ FEM_x_metab, FEM_y_metab, phi_FEM_metab]))
-        
+            if FV_reference:
+                FV_err_q_metab=np.append(FV_err_q_metab, get_MRE(q_metab, q_FV_metab))
+                FV_err_phi_metab=np.append(FV_err_phi_metab, get_MRE(np.ndarray.flatten(phi_FEM_cart_coarse_metab), np.ndarray.flatten(phi_FV_cart_metab)))
 
 
 save_csv(csv_directory + '/err_q_linear.csv', ['err_q_linear'], err_q_linear)
@@ -299,20 +313,30 @@ save_csv(csv_directory + '/err_phi_linear.csv', ['err_phi_linear'], err_phi_line
 save_csv(csv_directory + '/err_q_metab.csv', ['err_q_metab'], err_q_metab)
 save_csv(csv_directory + '/err_phi_metab.csv', ['err_phi_metab'], err_phi_metab)
 
-save_csv(csv_directory + '/err_FV_q_linear.csv', ['err_q_metab'], FV_err_q_linear)
-save_csv(csv_directory + '/err_FV_phi_linear.csv', ['err_phi_metab'], FV_err_phi_linear)
+save_csv(csv_directory + '/err_FV_q_linear.csv', ['err_q_linear'], FV_err_q_linear)
+save_csv(csv_directory + '/err_FV_phi_linear.csv', ['err_phi_linear'], FV_err_phi_linear)
+
+save_csv(csv_directory + '/err_FV_q_metab.csv', ['err_q_metab'], FV_err_q_metab)
+save_csv(csv_directory + '/err_FV_phi_metab.csv', ['err_phi_metab'], FV_err_phi_metab)
 
 #%%
-q_metab=np.squeeze(np.array(q_metab))
-plt.plot(q_metab)
-plt.plot(q_Multi_metab)
-plt.show()
+h=1/range_cells
+plt.plot(h,pd.read_csv(csv_directory + '/err_q_linear.csv').to_numpy(), '-s',color='b', markersize=16,label='$\\varepsilon_q^{Multi}$ linear')
+plt.plot(h,pd.read_csv(csv_directory + '/err_phi_linear.csv').to_numpy(), '-v',color='b', markersize=16,label='$\\varepsilon_{\phi}^{Multi}$ linear')
+plt.plot(h,pd.read_csv(csv_directory + '/err_q_metab.csv').to_numpy(), ':s',color='b', markersize=16,label='$\\varepsilon_q^{Multi}$ metab')
+plt.plot(h,pd.read_csv(csv_directory + '/err_phi_metab.csv').to_numpy(), ':v',color='b', markersize=16,label='$\\varepsilon_{\phi}^{Multi}$ metab')
 
-plt.plot(np.abs(q_metab-q_Multi_metab)/np.abs(q_metab), label="relative error")
-plt.plot(np.abs(q_metab-q_Multi_metab), label="abs error")
-plt.show()
+plt.plot(h,pd.read_csv(csv_directory + '/err_FV_q_linear.csv').to_numpy(), '-s',color='r', markersize=16,label='$\\varepsilon_q^{FV}$ linear')
+plt.plot(h,pd.read_csv(csv_directory + '/err_FV_phi_linear.csv').to_numpy(), '-v', color='r',markersize=16,label='$\\varepsilon_{\phi}^{FV}$ linear')
 
+plt.plot(h,pd.read_csv(csv_directory + '/err_FV_q_metab.csv').to_numpy(), ':s',color='r', markersize=16,label='$\\varepsilon_q^{FV}$ metab')
+plt.plot(h,pd.read_csv(csv_directory + '/err_FV_phi_metab.csv').to_numpy(), ':v', color='r',markersize=16,label='$\\varepsilon_{\phi}^{FV}$ metab')
 
+plt.legend()
+plt.xlabel('$\dfrac{h}{R_{cap}}$')
+plt.yscale('log')
+plt.ylabel('Relative flux error')
+plt.xlim(max(h)+0.02, min(h)-0.02)
 
 #%%
 

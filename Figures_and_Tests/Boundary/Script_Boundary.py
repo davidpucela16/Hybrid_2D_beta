@@ -12,7 +12,7 @@ both Dirichlet and periodic BCs
 
 #Define Computer
 import os
-Malphigui=1
+Malphigui=0
 if Malphigui:
     directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
     directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Boundary'

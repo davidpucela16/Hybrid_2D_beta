@@ -55,7 +55,7 @@ def plot_sketch(x, y, directness, h, pos_s, L, directory, *title):
     plt.ylabel("y ($\mu m$)")
     plt.xlabel("x ($\mu m$)")
     
-    plt.savefig(directory + "/sketch.png", transparent=True)
+    plt.savefig(directory + "/sketch.pdf", transparent=True)
     plt.show()
 
 

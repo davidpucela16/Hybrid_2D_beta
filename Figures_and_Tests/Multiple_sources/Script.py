@@ -10,13 +10,17 @@ both Dirichlet and periodic BCs
 
 """
 #djkflmjaze
-import os 
-directory='/home/pdavid/Bureau/Code/SS_auto57/2D_cartesian/Updated_BCs/Code'
-directory='/home/pdavid/Bureau/SS/2D_cartesian/Updated_BCs/Code' #Malpighi
+import os
+Malphigui=0
+if Malphigui:
+    directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
+    directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Multiple_sources'
+    csv_directory='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Multiple_sources/csv_outputs'
+else: #Auto_58
+    directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Code/'
+    directory_script='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/Multiple_sources'
+    csv_directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/Multiple_sources/csv_outputs'
 os.chdir(directory)
-
-directory_script='/home/pdavid/Bureau/SS/2D_cartesian/Updated_BCs/Figures_and_Tests/Multiple_sources'
-
 import numpy as np 
 import matplotlib.pyplot as plt
 from FV_reference import FV_validation
@@ -25,16 +29,18 @@ from Module_Coupling import assemble_SS_2D_FD, non_linear_metab
 from reconst_and_test_module import reconstruction_sans_flux
 from Small_functions import coord_to_pos,pos_to_coords,get_MAE, get_MRE, get_position_cartesian_sources, plot_sketch
 from Reconstruction_extended_space import reconstruction_extended_space
-from Testing import Testing, extract_COMSOL_data
+from Testing import Testing, extract_COMSOL_data, FEM_to_Cartesian, save_csv,array_cartesian_positions
+from Reconstruction_functions import coarse_cell_center_rec
 
+import pdb
 import random 
 import scipy as sp
 from scipy import sparse
 import scipy.sparse.linalg
 import matplotlib.pylab as pylab
-import pandas
+import pandas as pd
 params = {'legend.fontsize': 'x-large',
-          'figure.figsize': (6,6 ),
+          'figure.figsize': (12,12),
          'axes.labelsize': 'x-large',
          'axes.titlesize':'x-large',
          'xtick.labelsize':'x-large',
@@ -66,23 +72,28 @@ x_coarse=np.linspace(h_coarse/2, L-h_coarse/2, int(np.around(L/h_coarse)))
 y_coarse=x_coarse
 
 #V-chapeau definition
-directness=1
+directness=9
 print("directness=", directness)
 
 
 #pos_s=(1-np.array([[0.5,0.05+1/alpha/2]]))*L
 
 pos_s1=np.array([[0.45,0.02],[0.24,0.17],[0.6,0.23],[0.23,0.27],[0.55,0.33],[1.02,0.41],[0.96,0.43]])
-pos_s2=np.array([[0.27,0.6],[0.55,0.65],[0.59,0.66],[0.67,0.67],[0.13,0.75],[0.15,0.93],[0.2,0.87],[0.28,0.98],[0.8,0.85],[0.83,0.92]])
-pos_s=(np.concatenate((pos_s1, pos_s2))*0.8+0.1)*L
+pos_s2=np.array([[0.27,0.6],[0.53,0.65],[0.59,0.62],[0.67,0.69],[0.13,0.75],[0.15,0.93],[0.2,0.87],[0.28,0.98],[0.8,0.85],[0.83,0.92]])
+pos_s3=np.concatenate((pos_s1, pos_s2))
 
-pos_s[8,0]=127
-pos_s[9,0]=140
+pos_s3[:,0]-=0.06
+pos_s3[:,1]-=0.03
+
+pos_s=(pos_s3*0.8+0.1)*L
+
+#pos_s[8,0]=127
+#pos_s[9,0]=140
 
 S=len(pos_s)
 Rv=L/alpha+np.zeros(S)
 #ratio=int(40/cells)*2
-ratio=int(100*h_coarse//L/2)
+ratio=int(100*h_coarse//L/2)*2
 
 print("h coarse:",h_coarse)
 K_eff=K0/(np.pi*Rv**2)
@@ -93,19 +104,19 @@ if np.min(p-M*(1-phi_0/(phi_0+p)))<0: print("There is an error in the metabolism
 
 
 C_v_array=np.ones(S) 
+C_v_array[[2,5,8,11,14]]=0
 
-BC_value=np.array([0,0.2,0,0.2])
-BC_type=np.array(['Neumann', 'Dirichlet', 'Neumann', 'Dirichlet'])
+BC_value=np.array([0,0,0.3,0.3])
+BC_type=np.array(['Neumann',  'Neumann','Dirichlet', 'Dirichlet'])
 
 
 #What comparisons are we making 
 COMSOL_reference=1
 non_linear=1
-Peaceman_reference=0
-coarse_reference=1
+FV_reference=1
+coarse_reference=0
 directory_COMSOL='../Figures_and_Tests/Multiple_sources/COMSOL_output/linear'
 directory_COMSOL_metab='../Figures_and_Tests/Multiple_sources/COMSOL_output/metab'
-
 
 #%% 2 - Plot source centers and mesh
 #Position image
