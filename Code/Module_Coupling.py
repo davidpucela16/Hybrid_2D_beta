@@ -481,17 +481,22 @@ class non_linear_metab(assemble_SS_2D_FD):
         return()
  
     def Full_Newton(self, s_linear,q_linear, rel_error,M, phi_0):
+        
+        #M here means = Da_t / L_char^2
         self.M=M
         stabilization=1
         iterations=0
-        if M/self.D>5e-4:
-            #For very high consumptions, we set the initial guess to zero concentration in the parenchyma
-            self.assemble_it_matrices_Sampson(s_linear, q_linear)
-            s_linear=-self.rec_sing
-            q_linear=q_linear
-            stabilization=2*10**-4/M/self.D/2
-            print("stabilization= ", stabilization)
+# =============================================================================
+#         if M/self.D>5e-4:
+#             #For very high consumptions, we set the initial guess to zero concentration in the parenchyma
+#             self.assemble_it_matrices_Sampson(s_linear, q_linear)
+#             s_linear=-self.rec_sing
+#             q_linear=q_linear
+#             stabilization=2*10**-4/M/self.D/2
+#             print("stabilization= ", stabilization)
+# =============================================================================
         self.phi_0=phi_0
+        if phi_0<0.2: self.stabilization=0.01
         rl=np.array([1])
         arr_unk=np.array([np.concatenate((s_linear,q_linear))]) #This is the array where the arrays of u through iterations will be kept
         S=self.S

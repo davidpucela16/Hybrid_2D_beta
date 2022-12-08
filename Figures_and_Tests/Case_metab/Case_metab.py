@@ -10,13 +10,31 @@ both Dirichlet and periodic BCs
 
 """
 #djkflmjaze
-import os 
-directory='/home/pdavid/Bureau/Code/Updated_BCs_2/Code'
-#directory='/home/pdavid/Bureau/Updated_BCs_2/Code'
+import matplotlib.pyplot as plt
+import matplotlib.pylab as pylab
+params = {'legend.fontsize': 'x-large',
+          'figure.figsize': (10,10),
+         'axes.labelsize': 'x-large',
+         'axes.titlesize':'x-large',
+         'xtick.labelsize':'x-large',
+         'ytick.labelsize':'x-large', 
+         'font.size': 20,
+         'lines.linewidth': 4}
+pylab.rcParams.update(params)
+#Define Computer
+Malphigui=1
+if Malphigui:
+    directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
+    directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Case_metab'
+    directory_article_figures='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Article_figs'
+else: #Auto_58
+    directory='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Code/'
+    directory_script='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/Case_metab'
+    directory_article_figures='/home/pdavid/Bureau/Code/Hybrid_2D_beta/Figures_and_Tests/Article_figs'
+    
+import os
 os.chdir(directory)
-
-mod_metab='../Tool_Validation'
-os.chdir(mod_metab)
+    
 from Metab_testing_module import position_sources, metab_simulation, get_met_plateau
 
 
@@ -68,16 +86,17 @@ directness=10
 L_cap=0.05 #mm
 P_max=40 #mmHg
 D = 4e-3 # mm^2 s^-1
-solubility= 1.39e-6 #micromol mm^-3 mmHg^-3
+solubility= 1.39e-6 #micromol mm^-3 mmHg^-1
 
 #Da_t range defined with the values in Natalie's paper:
 CMRO2_max=3 #in micromol s^-1 cm^-3 obtained from literature
 
 Da_t_max=CMRO2_max/5.3376
+Da_t_max=0.4
 
 Da_t_range=np.linspace(0,Da_t_max,5)
 mean_range=np.array([0.4,0.45,0.5,0.55])
-L_char=0.050 #milimeters
+L_char=50 #micrometers
 solubility= 1.39e-6 #micromol/(mm3*mmHg)
 P_max=40 #mmHgµ
 D=4e-3 #mm2/s
@@ -90,29 +109,33 @@ M_values_min=Da_t_range*5.3376
 density_range=np.concatenate(([250],np.linspace(352,528,4)))
 real_density=np.concatenate(([250/440],np.linspace(0.8,1.2,4)))
 std=0.2
-simulations=4
+simulations=50
 
 
 #%%
-mean=0.5
+mean=0.45
 for layer in range(len(density_range)):
     #layer represents the cortical layer where we at
     for Da in range(len(Da_t_range)):
         print("layer", layer)
         print("Da pos ", Da)
         #M=M_values[Da]
-        M=Da_t_range[Da]*L_char**2/10 #therefore the units are mm-2
+        M=Da_t_range[Da]/L_char**2 #therefore the units are mm-2
         density=density_range[layer]
         #mean=mean_range[layer]
-        a=metab_simulation(mean, std, 2, density,L,L/4,L/alpha,3, K_eff, directness, M)
-        np.save('../Figures_and_Tests/Case_metab/phys_vals_mean_bon_test/mean={}_Da={}_layer={}'.format(int(mean*100),int(Da_t_range[Da]*100), int(layer)), a)
-         
-
-#############################################################################################
-##############################################################################################
-#############################################################################################
-##############################################################################################
+        a=metab_simulation(mean, std, simulations, density,L,L/4,L/alpha,3, K_eff, directness, M,0.1)
+        np.save(directory_script + '/phi=10/Da={}_layer={}'.format(int(mean*100),int(Da_t_range[Da]*100), int(layer)), a)
+                                                                                 
 #%%
+
+for i in range(len(density_range)):
+    plt.plot(np.load(directory_script + ))
+                                                                                                                                                                                                                                                                                                                                                                                                 
+#############################################################################################
+##############################################################################################
+#############################################################################################
+##############################################################################################
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    #%%
 mean=mean_range[0]
 for layer in range(len(density_range)):
     #layer represents the cortical layer where we at
