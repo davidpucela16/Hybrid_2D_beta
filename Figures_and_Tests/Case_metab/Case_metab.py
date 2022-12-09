@@ -22,7 +22,7 @@ params = {'legend.fontsize': 'x-large',
          'lines.linewidth': 4}
 pylab.rcParams.update(params)
 #Define Computer
-Malphigui=1
+Malphigui=0
 if Malphigui:
     directory='/home/pdavid/Bureau/Hybrid_2D_beta/Code' #Malpighi
     directory_script='/home/pdavid/Bureau/Hybrid_2D_beta/Figures_and_Tests/Case_metab'
@@ -111,12 +111,26 @@ real_density=np.concatenate(([250/440],np.linspace(0.8,1.2,4)))
 std=0.2
 simulations=50
 
+#%%
+layer=3
+Da=1
+mean=0.4
+print("layer", layer)
+print("Da pos ", Da)
+#M=M_values[Da]
+M=Da_t_range[Da]/L_char**2 #therefore the units are mm-2
+density=density_range[layer]
+#mean=mean_range[layer]
+a=metab_simulation(mean, std, simulations, density,L,L/4,L/alpha,3, K_eff, directness, M,0.1)
+np.save(directory_script + '/phi=10/Da={}_layer={}'.format(int(Da_t_range[Da]*100), int(layer)), a)
 
 #%%
 mean=0.45
-for layer in range(len(density_range)):
-    #layer represents the cortical layer where we at
-    for Da in range(len(Da_t_range)):
+
+#layer represents the cortical layer where we at
+#for Da in range(len(Da_t_range)):
+for Da in np.array([2,3]):
+    for layer in range(len(density_range)):
         print("layer", layer)
         print("Da pos ", Da)
         #M=M_values[Da]
@@ -124,12 +138,14 @@ for layer in range(len(density_range)):
         density=density_range[layer]
         #mean=mean_range[layer]
         a=metab_simulation(mean, std, simulations, density,L,L/4,L/alpha,3, K_eff, directness, M,0.1)
-        np.save(directory_script + '/phi=10/Da={}_layer={}'.format(int(mean*100),int(Da_t_range[Da]*100), int(layer)), a)
+        np.save(directory_script + '/phi=10/Da={}_layer={}'.format(int(Da_t_range[Da]*100), int(layer)), a)
                                                                                  
 #%%
 
 for i in range(len(density_range)):
-    plt.plot(np.load(directory_script + ))
+    plt.plot(np.load(directory_script + '/phi=10/Da=45_layer={}.npy'.format(int(i)*10)), label='couche={}'.format(i))
+plt.legend()
+plt.show()
                                                                                                                                                                                                                                                                                                                                                                                                  
 #############################################################################################
 ##############################################################################################

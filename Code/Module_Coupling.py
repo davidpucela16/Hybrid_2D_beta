@@ -484,7 +484,6 @@ class non_linear_metab(assemble_SS_2D_FD):
         
         #M here means = Da_t / L_char^2
         self.M=M
-        stabilization=1
         iterations=0
 # =============================================================================
 #         if M/self.D>5e-4:
@@ -496,11 +495,21 @@ class non_linear_metab(assemble_SS_2D_FD):
 #             print("stabilization= ", stabilization)
 # =============================================================================
         self.phi_0=phi_0
-        if phi_0<0.2: self.stabilization=0.01
+        stabilization=1
+        self.stabilization=stabilization
+        if phi_0<0.2: self.stabilization/=2
+        if M*50**2>0.25: self.stabilization/=2
+        print('stabilization= ', self.stabilization)
         rl=np.array([1])
         arr_unk=np.array([np.concatenate((s_linear,q_linear))]) #This is the array where the arrays of u through iterations will be kept
         S=self.S
+        
+        stabilization=self.stabilization
         while (np.abs(rl[-1])>rel_error and iterations<300):
+            if iterations%75==74: 
+                stabilization/=2
+                print('stabilization has been reduced')
+                arr_unk=np.array([np.concatenate((s_linear,q_linear))]) #restart the computation
             self.assemble_it_matrices_Sampson(arr_unk[-1,:-S], arr_unk[-1,-S:])
             #average phi field
             s_field=arr_unk[-1,:-S]

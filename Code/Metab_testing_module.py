@@ -63,8 +63,8 @@ def metab_simulation(mean, std_dev, simulations, density, L,  cyl_rad, R_art, R_
         y_coarse=x_coarse
         t=Testing(pos_s, Rv, cells, L,  K_eff, D, directness, ratio, C_v_array, BC_type, BC_value)
 
-        t.stabilization=0.5
-        print(t.stabilization)
+
+        print("Da= ", CMRO2_max*50**2)
         
         plot_sketch(x_coarse, y_coarse, directness, h_coarse, pos_s, L, os.getcwd())
         C_v_array[C_v_array>1]=1
