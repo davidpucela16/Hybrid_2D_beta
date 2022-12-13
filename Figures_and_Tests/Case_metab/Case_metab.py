@@ -92,9 +92,9 @@ solubility= 1.39e-6 #micromol mm^-3 mmHg^-1
 CMRO2_max=3 #in micromol s^-1 cm^-3 obtained from literature
 
 Da_t_max=CMRO2_max/5.3376
-Da_t_max=0.4
+Da_t_max=1
 
-Da_t_range=np.linspace(0,Da_t_max,5)
+Da_t_range=np.linspace(0,Da_t_max,6)
 mean_range=np.array([0.4,0.45,0.5,0.55])
 L_char=50 #micrometers
 solubility= 1.39e-6 #micromol/(mm3*mmHg)
@@ -111,42 +111,68 @@ real_density=np.concatenate(([250/440],np.linspace(0.8,1.2,4)))
 std=0.2
 simulations=50
 
-#%%
-layer=3
-Da=1
-mean=0.4
-print("layer", layer)
-print("Da pos ", Da)
-#M=M_values[Da]
-M=Da_t_range[Da]/L_char**2 #therefore the units are mm-2
-density=density_range[layer]
-#mean=mean_range[layer]
-a=metab_simulation(mean, std, simulations, density,L,L/4,L/alpha,3, K_eff, directness, M,0.1)
-np.save(directory_script + '/phi=10/Da={}_layer={}'.format(int(Da_t_range[Da]*100), int(layer)), a)
 
 #%%
-mean=0.45
-
 #layer represents the cortical layer where we at
-#for Da in range(len(Da_t_range)):
-for Da in np.array([2,3]):
-    for layer in range(len(density_range)):
-        print("layer", layer)
-        print("Da pos ", Da)
-        #M=M_values[Da]
-        M=Da_t_range[Da]/L_char**2 #therefore the units are mm-2
-        density=density_range[layer]
-        #mean=mean_range[layer]
-        a=metab_simulation(mean, std, simulations, density,L,L/4,L/alpha,3, K_eff, directness, M,0.1)
-        np.save(directory_script + '/phi=10/Da={}_layer={}'.format(int(Da_t_range[Da]*100), int(layer)), a)
-                                                                                 
+for mean in np.array([0.4,0.45,0.5,0.55]):
+    for Da in range(len(Da_t_range)):
+        for layer in range(len(density_range)):
+            print("layer", layer)
+            print("Da pos ", Da)
+            #M=M_values[Da]
+            M=Da_t_range[Da]/L_char**2 #therefore the units are mm-2
+            density=density_range[layer]
+            #mean=mean_range[layer]
+            a=metab_simulation(mean, std, simulations, density,L,L/4,L/alpha,3, K_eff, directness, M,0.1)
+            np.save(directory_script + '/phi=10_sim=50_mean={}_real_CMRO2/Da={}_layer={}'.format(int(mean*100),int(Da_t_range[Da]*100), int(layer)), a)
+                                                                                     
 #%%
+plat=np.zeros(len(density_range))
+for Da in range(len(Da_t_range)):
+    for layer in range(len(density_range)):
+        array=np.load(directory_script + '/phi=10_sim=50_mean={}_real_CMRO2/Da={}_layer={}.npy'.format(int(mean*100),int(Da_t_range[Da]*100), int(layer)))
+        plt.plot(array, label='couche={}'.format(layer), linewidth=1.5)
+        plat[layer]=np.sum(array[int(len(array)/2):])/int(len(array)/2)
+    plt.legend()
+    
+    plt.title("$CMRO2max$={}".format(Da_t_range[Da]*5.3376))
+    plt.show()
+    
+    plt.plot(plat)
+    plt.xlabel('couche')
+    plt.title('avg value $\phi$ CMRO2max={}'.format(Da_t_range[Da]*5.3376))
+    plt.show()
+                     
 
-for i in range(len(density_range)):
-    plt.plot(np.load(directory_script + '/phi=10/Da=45_layer={}.npy'.format(int(i)*10)), label='couche={}'.format(i))
-plt.legend()
-plt.show()
-                                                                                                                                                                                                                                                                                                                                                                                                 
+
+#%%                                    
+plat=np.zeros(len(density_range))                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+for Da in range(len(Da_t_range)):
+    for i in np.arange(len(density_range)):
+        array=np.load(directory_script + '/phi=10_sim=50_mean={}/Da={}_layer={}.npy'.format(int(mean*100), int(Da_t_range[Da]*100), int(i)))
+        plt.plot(array, label='couche={}'.format(i), linewidth=1.5)
+        plat[i]=np.sum(array[int(len(array)/2):])/int(len(array)/2)
+    plt.legend()
+    
+    plt.title("$CMRO2max$={}".format(Da_t_range[Da]*5.3376))
+    plt.show()
+    
+    plt.plot(plat)
+    plt.xlabel('couche')
+    plt.title('avg value $\phi$ CMRO2max={}'.format(Da_t_range[Da]*5.3376))
+    plt.show()
+#%%
+Da_prev=np.array([0,14,28,42])
+mean=0.5
+
+for Da in range(len(Da_prev)):
+    for i in np.arange(len(density_range)):
+        plt.plot(np.load(directory_script + '/phys_vals_mean_bon/mean={}_Da={}_layer={}.npy'.format(int(mean*100), int(Da_prev[Da]), int(i))), label='couche={}'.format(i))
+    plt.legend()
+    
+    plt.title("$CMRO2max$={}".format(Da_prev[Da]*5.3376/100))
+    plt.show()                    
+                                                                                                                                                                                                                                                                                                                                                                    
 #############################################################################################
 ##############################################################################################
 #############################################################################################
